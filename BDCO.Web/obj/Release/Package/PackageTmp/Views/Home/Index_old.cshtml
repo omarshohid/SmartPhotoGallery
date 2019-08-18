@@ -1,0 +1,235 @@
+﻿@using AppetizerHtmlHelper
+@using Kendo.Mvc.UI
+@{
+    ViewBag.Title = "DASHBOARD";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style type="text/css">
+    .showError {
+        display: block;
+        color: red;
+    }
+
+    .hideError {
+        display: none;
+        color: red;
+    }
+
+    .box-heading .col-3 [class*=box-] {
+        height: 31px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        border-bottom: 2px solid #dcdcdc;
+    }
+</style>
+<div id="showMsg" class="iziModal" style="z-index:99999"></div>
+<div id="showErrorMsg" class="iziModal" style="z-index:99999"></div>
+
+
+<section id="search">
+    <div class="row">
+       
+    </div>
+</section>
+<section id="details" style="display:none">
+    <div class="box-heading no-flex">
+        <div class="grid one-row">
+            <div class="col-3">
+                <div class="box-left">
+                    <sapn style="font-weight:bold;font-size:20px; color: #ffb74f">Country </sapn>
+                    <span style="font-size:19px">Statistics</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="form-group">
+                <table class="table table-bordered" id="beneficiaryList">
+                    <thead style="background-color: #ececec;">
+                        <tr>
+                            <th title="অ্যাপ্লিকেশান এ উপকারভোগকারীর আইডি নাম্বার"><label>আইডি</label></th>
+                            <th title="কোন ফেজ এর ডাটা"><label>ফেজ</label></th>
+                            <th title="উপকারভোগকারীর কোড (BenID)"><label>উপকারভোগকারীর কোড</label></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><label>আইডি</label></td>
+                            <td><label>ফেজ</label></td>
+                            <td><label>উপকারভোগকারীর কোড</label></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+
+
+    var CountryData = [
+        { CountryName: "Afghanistan", CountryCode: "1" },
+        { CountryName: "Albania", CountryCode: "2" },
+        { CountryName: "Argentina", CountryCode: "3" },
+        { CountryName: "Armenia", CountryCode: "4" },
+        { CountryName: "Australia", CountryCode: "5" },
+        { CountryName: "Azerbaijan", CountryCode: "6" },
+        { CountryName: "Bangladesh", CountryCode: "7" },
+        { CountryName: "Belgium", CountryCode: "8" },
+        { CountryName: "Benin", CountryCode: "9" },
+        { CountryName: "Bhutan", CountryCode: "10" },
+        { CountryName: "Bolivia", CountryCode: "11" },
+        { CountryName: "Bosnia and Herzegovina", CountryCode: "12" },
+        { CountryName: "Botswana", CountryCode: "13" },
+        { CountryName: "Brazil", CountryCode: "14" },
+        { CountryName: "Burkina Faso", CountryCode: "15" },
+        { CountryName: "Burundi", CountryCode: "16" },
+        { CountryName: "Cambodia", CountryCode: "17" },
+        { CountryName: "Canada", CountryCode: "18" },
+        { CountryName: "Cape verde", CountryCode: "19" },
+        { CountryName: "Chad", CountryCode: "20" },
+        { CountryName: "Chile", CountryCode: "21" },
+        { CountryName: "China", CountryCode: "22" },
+        { CountryName: "Colombia", CountryCode: "23" },
+        { CountryName: "Costa Rica", CountryCode: "24" },
+        { CountryName: "Côte d'Ivoire", CountryCode: "24" },
+        { CountryName: "Croatia", CountryCode: "26" },
+        { CountryName: "Cuba", CountryCode: "27" },
+        { CountryName: "Denmark", CountryCode: "28" },
+        { CountryName: "Dominican Republic", CountryCode: "29" },
+        { CountryName: "DPRK", CountryCode: "30" },
+        { CountryName: "DRC", CountryCode: "31" },
+        { CountryName: "Ecuador", CountryCode: "32" },
+        { CountryName: "Egypt", CountryCode: "33" },
+        { CountryName: "El Salvador", CountryCode: "34" },
+        { CountryName: "Ethiopia", CountryCode: "35" },
+        { CountryName: "Fiji", CountryCode: "36" },
+        { CountryName: "Finland", CountryCode: "37" },
+        { CountryName: "Georgia", CountryCode: "38" },
+        { CountryName: "Germany", CountryCode: "39" },
+        { CountryName: "Ghana", CountryCode: "40" },
+        { CountryName: "Greece", CountryCode: "41" },
+        { CountryName: "Greenland", CountryCode: "42" },
+        { CountryName: "Guatemala", CountryCode: "43" },
+        { CountryName: "Guinea", CountryCode: "44" },
+        { CountryName: "Guinea Bissau", CountryCode: "45" },
+        { CountryName: "Haiti", CountryCode: "46" },
+        { CountryName: "Honduras", CountryCode: "47" },
+        { CountryName: "Hong Kong", CountryCode: "48" },
+        { CountryName: "Iceland", CountryCode: "49" },
+        { CountryName: "India", CountryCode: "50" },
+        { CountryName: "Indonesia", CountryCode: "51" },
+        { CountryName: "Iraq", CountryCode: "52" },
+        { CountryName: "Israel", CountryCode: "53" },
+        { CountryName: "Italy", CountryCode: "54" },
+        { CountryName: "Japan", CountryCode: "55" },
+        { CountryName: "Jordan", CountryCode: "56" },
+        { CountryName: "Kenya", CountryCode: "57" },
+        { CountryName: "Korea", CountryCode: "58" },
+        { CountryName: "Kosovo", CountryCode: "59" },
+        { CountryName: "Kyrgyzstan", CountryCode: "60" },
+        { CountryName: "Laos", CountryCode: "61" },
+        { CountryName: "Lebanon", CountryCode: "62" },
+        { CountryName: "Liberia", CountryCode: "63" },
+        { CountryName: "Libya", CountryCode: "64" },
+        { CountryName: "Lithuania", CountryCode: "65" },
+        { CountryName: "Macedonia", CountryCode: "66" },
+        { CountryName: "Madagascar", CountryCode: "67" },
+        { CountryName: "Malawi", CountryCode: "68" },
+        { CountryName: "Mali", CountryCode: "69" },
+        { CountryName: "Mauritania", CountryCode: "70" },
+        { CountryName: "Mexico", CountryCode: "71" },
+        { CountryName: "Moldova", CountryCode: "72" },
+        { CountryName: "Mongolia", CountryCode: "73" },
+        { CountryName: "Montenegro", CountryCode: "74" },
+        { CountryName: "Mozambique", CountryCode: "75" },
+        { CountryName: "Myanmar", CountryCode: "76" },
+        { CountryName: "Namibia", CountryCode: "77" },
+        { CountryName: "Nepal", CountryCode: "78" },
+        { CountryName: "Netherlands", CountryCode: "79" },
+        { CountryName: "New Zealand", CountryCode: "80" },
+        { CountryName: "Nicaragua", CountryCode: "81" },
+        { CountryName: "Niger", CountryCode: "82" },
+        { CountryName: "Nigeria", CountryCode: "83" },
+        { CountryName: "Norway", CountryCode: "84" },
+        { CountryName: "occupied Palestinian territor", CountryCode: "85" },
+        { CountryName: "Pakistan", CountryCode: "86" },
+        { CountryName: "Panama", CountryCode: "87" },
+        { CountryName: "Papua New Guinea", CountryCode: "88" },
+        { CountryName: "Paraguay", CountryCode: "89" },
+        { CountryName: "Peru", CountryCode: "90" },
+        { CountryName: "Philippines", CountryCode: "91" },
+        { CountryName: "Romania", CountryCode: "92" },
+        { CountryName: "Russia", CountryCode: "93" },
+        { CountryName: "Rwanda", CountryCode: "94" },
+        { CountryName: "Senegal", CountryCode: "95" },
+        { CountryName: "Serbia", CountryCode: "96" },
+        { CountryName: "Sierra Leone", CountryCode: "97" },
+        { CountryName: "Singapore", CountryCode: "98" },
+        { CountryName: "Solomon Islands", CountryCode: "99" },
+        { CountryName: "Somalia", CountryCode: "100" },
+        { CountryName: "South Africa", CountryCode: "101" },
+        { CountryName: "South Sudan", CountryCode: "102" },
+        { CountryName: "Spain", CountryCode: "103" },
+        { CountryName: "Sri Lanka", CountryCode: "104" },
+        { CountryName: "Sudan", CountryCode: "105" },
+        { CountryName: "Swaziland", CountryCode: "106" },
+        { CountryName: "Sweden", CountryCode: "107" },
+        { CountryName: "Switzerland", CountryCode: "108" },
+        { CountryName: "Syria", CountryCode: "109" },
+        { CountryName: "Tajikistan", CountryCode: "110" },
+        { CountryName: "Tanzania", CountryCode: "111" },
+        { CountryName: "Thailand", CountryCode: "112" },
+        { CountryName: "The Gambia", CountryCode: "113" },
+        { CountryName: "Togo", CountryCode: "114" },
+        { CountryName: "Turkey", CountryCode: "115" },
+        { CountryName: "Uganda", CountryCode: "116" },
+        { CountryName: "Ukraine", CountryCode: "117" },
+        { CountryName: "United Kingdom", CountryCode: "118" },
+        { CountryName: "United States", CountryCode: "119" },
+        { CountryName: "Uruguay", CountryCode: "120" },
+        { CountryName: "Vanuatu", CountryCode: "121" },
+        { CountryName: "Venezuela", CountryCode: "122" },
+        { CountryName: "Vietnam", CountryCode: "123" },
+        { CountryName: "Yemen", CountryCode: "124" },
+        { CountryName: "Zambia", CountryCode: "125" },
+        { CountryName: "Zimbabwe", CountryCode: "126" }
+    ]
+    $(document).ready(function () {
+        $("#Country").kendoDropDownList({
+            optionLabel: "Select a country",
+            dataTextField: "CountryName",
+            dataValueField: "CountryCode",
+            filter: "contains",
+            dataSource: CountryData,
+            height: '300',
+            open: adjustDropDownWidth,
+            index: 0
+        }).data("kendoDropDownList");
+
+    });
+    function adjustDropDownWidth(e) {
+        var listContainer = e.sender.list.closest(".k-list-container");
+        listContainer.width(listContainer.width() + kendo.support.scrollbar());
+    }
+
+    $("#btnSearch").click(function () {
+        var val = $("#Country").val();
+        if (val != '') {
+            $("#details").css('display', 'block');
+        }
+        else {
+            $("#details").css('display', 'none');
+            alert("Please select a country first!");
+        }
+
+    });
+</script>
+<script src="~/Scripts/KendoUI/kendo.dataviz.min.js"></script>
+<script src="~/Scripts/KendoUI/kendo.dataviz.chart.min.js"></script>
+<script src="~/Scripts/Appetizer.js"></script>
+

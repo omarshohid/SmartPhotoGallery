@@ -1,0 +1,28 @@
+D:\READ WEB\readweb\DAL\bin\Release\DAL.dll.config
+D:\READ WEB\readweb\DAL\bin\Release\DAL.dll
+D:\READ WEB\readweb\DAL\bin\Release\DAL.pdb
+D:\READ WEB\readweb\DAL\bin\Release\EntityFramework.dll
+D:\READ WEB\readweb\DAL\bin\Release\EntityFramework.SqlServer.dll
+D:\READ WEB\readweb\DAL\bin\Release\EntityFramework.xml
+D:\READ WEB\readweb\DAL\bin\Release\EntityFramework.SqlServer.xml
+D:\READ WEB\readweb\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+D:\READ WEB\readweb\DAL\obj\Release\DAL.dll
+D:\READ WEB\readweb\DAL\obj\Release\DAL.pdb
+C:\Shohid\readwebsite\DAL\bin\Release\DAL.dll.config
+C:\Shohid\readwebsite\DAL\bin\Release\DAL.dll
+C:\Shohid\readwebsite\DAL\bin\Release\DAL.pdb
+C:\Shohid\readwebsite\DAL\bin\Release\EntityFramework.dll
+C:\Shohid\readwebsite\DAL\bin\Release\EntityFramework.SqlServer.dll
+C:\Shohid\readwebsite\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+C:\Shohid\readwebsite\DAL\obj\Release\DAL.dll
+C:\Shohid\readwebsite\DAL\obj\Release\DAL.pdb
+C:\Shohid\readwebsite\DAL\bin\Release\PdfiumViewer.dll
+C:\TFS\PhotoGallery\DAL\bin\Release\DAL.dll.config
+C:\TFS\PhotoGallery\DAL\bin\Release\DAL.dll
+C:\TFS\PhotoGallery\DAL\bin\Release\DAL.pdb
+C:\TFS\PhotoGallery\DAL\bin\Release\EntityFramework.dll
+C:\TFS\PhotoGallery\DAL\bin\Release\EntityFramework.SqlServer.dll
+C:\TFS\PhotoGallery\DAL\bin\Release\PdfiumViewer.dll
+C:\TFS\PhotoGallery\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+C:\TFS\PhotoGallery\DAL\obj\Release\DAL.dll
+C:\TFS\PhotoGallery\DAL\obj\Release\DAL.pdb

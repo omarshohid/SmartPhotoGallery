@@ -1,0 +1,269 @@
+/*
+   HEADER SECTION
+   ========================================================================== */
+/* line 6, ../scss/style.scss */
+.header-section {
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 1);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 1);
+  position: fixed;
+  z-index: 999;
+  min-width: 100%;
+}
+
+/* line 14, ../scss/style.scss */
+.contain-to-grid {
+  background-color: rgba(255, 255, 255, 0.97);
+}
+
+/* line 19, ../scss/style.scss */
+.header-fill {
+  background: #fff;
+  height: 135px;
+}
+/* line 22, ../scss/style.scss */
+.header-fill .tablet-mobile-logo img {
+  padding-top: 30px;
+}
+
+/* line 27, ../scss/style.scss */
+.full-width {
+  min-width: 100%;
+}
+
+/* line 31, ../scss/style.scss */
+p {
+  line-height: 3rem;
+  padding-bottom: 30px;
+}
+
+/*
+   TOPBAR NAVGATION
+   ========================================================================== */
+/* line 41, ../scss/style.scss */
+.top-bar {
+     background: none;
+    padding: 10px 0px 0px 0px;
+    transition: all 0.5s ease 0.1s;
+    /* width: 1160px; */
+    margin-left: auto;
+    margin-right: auto;
+    /*height: 83px;*/
+    width: 100%;
+}
+.padding-on-my-header {
+      padding: 2px 0.9375rem 2px 0.9375rem;
+    height: 36px;
+}
+/* line 46, ../scss/style.scss */
+.top-bar ul.title-area img {
+  margin: -10px 0 0 0;
+}
+/* line 49, ../scss/style.scss */
+.top-bar .top-bar-section ul {
+  background: none;
+}
+/* line 52, ../scss/style.scss */
+.top-bar .top-bar-section ul li a:not(.button), .top-bar .top-bar-section ul li.active a:not(.button) {
+  background: none;
+  line-height: 30px;
+  font-size: 12px;
+  padding: 0;
+  margin: 5px 0 0 0;
+  text-transform: uppercase;
+}
+/* line 61, ../scss/style.scss */
+.top-bar .top-bar-section ul li a:not(.button):hover {
+  background: none;
+  border-bottom: 2px solid #ef4523;
+  color: #222;
+}
+/* line 67, ../scss/style.scss */
+.top-bar .top-bar-section ul li.active a:not(.button) {
+  border-bottom: 2px solid #ef4523;
+  color: #222;
+}
+/* line 70, ../scss/style.scss */
+.top-bar .top-bar-section ul li.active a:not(.button):hover {
+  background: none;
+}
+/* line 74, ../scss/style.scss */
+.top-bar .top-bar-section ul li {
+  margin-left: 30px;
+}
+/* line 76, ../scss/style.scss */
+.top-bar .top-bar-section ul li a {
+  color: #888;
+}
+/* line 82, ../scss/style.scss */
+.top-bar .top-bar-section ul li:hover:not(.has-form) > a {
+  color: #333;
+}
+/* line 85, ../scss/style.scss */
+.top-bar .top-bar-section li ul.dropdown {
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #888;
+}
+/* line 89, ../scss/style.scss */
+.top-bar .top-bar-section li ul.dropdown li {
+  border-bottom: 1px solid #ddd;
+  margin: 0;
+  padding: 5px 15px 5px 15px;
+}
+/* line 95, ../scss/style.scss */
+.top-bar .top-bar-section li ul.dropdown li a:not(.button):hover, .top-bar .top-bar-section li ul.dropdown li a:not(.button) {
+  background: none;
+  color: #222;
+  border-bottom: none;
+  padding: 20px -4px 40px 45px;
+}
+/* line 101, ../scss/style.scss */
+.top-bar .top-bar-section ul.dropdown li:hover:not(.has-form) > a:not(.button) {
+  background: none;
+  color: #222;
+}
+/* line 106, ../scss/style.scss */
+.top-bar .has-dropdown > a:after {
+  border-color: rgba(0, 0, 0, 0.5) transparent transparent;
+  margin-top: -5px;
+}
+
+/*
+   CONTENT SECTION
+   ========================================================================== */
+/* line 118, ../scss/style.scss */
+.content-section .main-content {
+  margin-top: 35px;
+}
+
+/*
+   FOOTER SECTION
+   ========================================================================== */
+/* line 128, ../scss/style.scss */
+.footer-section {
+  background: #333;
+  min-height: 100px;
+}
+/* line 131, ../scss/style.scss */
+.footer-section p {
+  color: #fff;
+  margin-top: 50px;
+}
+
+/* line 138, ../scss/style.scss */
+/*.padding-on-my-header {
+  padding: 17px 0.9375rem 62px 0.9375rem;
+}*/
+/* line 140, ../scss/style.scss */
+.padding-on-my-header ul.title-area img {
+  margin: -5px 0 0 0;
+}
+
+/*
+	 CONTENT SECTION
+	 ========================================================================== */
+/* line 151, ../scss/style.scss */
+.content-section .main-content {
+  margin-top: 35px;
+}
+
+/*
+	 FOOTER SECTION
+	 ========================================================================== */
+/* line 161, ../scss/style.scss */
+.footer-section {
+  background: #333;
+  min-height: 100px;
+}
+/* line 164, ../scss/style.scss */
+.footer-section p {
+  color: #fff;
+  margin-top: 50px;
+}
+
+@media only screen and (max-width: 1024px) {
+  /* line 172, ../scss/style.scss */
+  .top-bar {
+    margin-top: 0;
+    padding: 0;
+    float: none;
+  }
+  /* line 177, ../scss/style.scss */
+  .top-bar .toggle-topbar.menu-icon a {
+    color: #222;
+  }
+  /* line 179, ../scss/style.scss */
+  .top-bar .toggle-topbar.menu-icon a:after {
+    box-shadow: 0 10px 0 1px #222, 0 16px 0 1px #222, 0 22px 0 1px #222;
+  }
+  /* line 184, ../scss/style.scss */
+  .top-bar ul.title-area img {
+    margin: -2px 0 0;
+    width: 145px;
+  }
+  /* line 189, ../scss/style.scss */
+  .top-bar .top-bar-section ul {
+    background: #333;
+  }
+  /* line 191, ../scss/style.scss */
+  .top-bar .top-bar-section ul li {
+    margin-left: 0;
+  }
+  /* line 194, ../scss/style.scss */
+  .top-bar .top-bar-section ul li > a {
+    background: #ef4523;
+    border-radius: 0;
+    font-size: 0.9rem;
+  }
+  /* line 200, ../scss/style.scss */
+  .top-bar .top-bar-section ul li:not(.has-form) a:not(.button) {
+    background: none;
+    color: #fff;
+    padding: 10px 15px;
+    margin-top: 0;
+  }
+  /* line 205, ../scss/style.scss */
+  .top-bar .top-bar-section ul li:not(.has-form) a:not(.button):hover {
+    background: #ef4523;
+    color: #fff;
+    margin-top: 0;
+  }
+  /* line 212, ../scss/style.scss */
+  .top-bar .top-bar-section ul li.active:not(.has-form) a:not(.button) {
+    background: #ef4523;
+    color: #fff;
+    padding: 10px 15px;
+    margin-top: 0;
+  }
+  /* line 217, ../scss/style.scss */
+  .top-bar .top-bar-section ul li.active:not(.has-form) a:not(.button):hover {
+    background: #f1593b;
+    margin-top: 0;
+  }
+
+  /* line 226, ../scss/style.scss */
+  .top-bar.padding-on-my-header ul.title-area img {
+    margin: 5px 13px 0;
+    width: 35px;
+  }
+
+  /* line 231, ../scss/style.scss */
+  .top-bar.expanded {
+    margin-top: 0;
+    padding: 0;
+    float: none;
+  }
+  /* line 235, ../scss/style.scss */
+  .top-bar.expanded .toggle-topbar.menu-icon a {
+    color: #fff;
+  }
+  /* line 237, ../scss/style.scss */
+  .top-bar.expanded .toggle-topbar.menu-icon a:after {
+    box-shadow: 0 10px 0 1px #fff, 0 16px 0 1px #fff, 0 22px 0 1px #fff;
+  }
+
+  /* line 244, ../scss/style.scss */
+  .header-fill {
+    height: 40px;
+  }
+}

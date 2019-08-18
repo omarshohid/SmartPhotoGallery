@@ -1,0 +1,341 @@
+﻿
+@model BDCO.Web.Models.LoginViewModel
+@using AppetizerHtmlHelper
+@*@using Kendo.Mvc.UI*@
+@{
+    ViewBag.Title = "Log in";
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <title></title>
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/appStyle.css" rel="stylesheet" />*@
+    @*<link href="~/Content/KendoUI/kendo.common.min.css" rel="stylesheet" />*@
+    @*<link href="~/Content/KendoUI/kendo.metro.min.css" rel="stylesheet" />*@
+    @*<link href="~/Content/iziModal.css" rel="stylesheet" />*@
+
+    <link href="~/Content/Landing/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/Landing/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link href="~/Content/Landing/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="~/Content/Landing/css/creative.min.css" rel="stylesheet">
+    <link href="~/Content/Landing/css/style.css" rel="stylesheet" />
+
+    @*<style>
+            body {
+                background-image: none;
+            }
+
+            .buttonStyle {
+                background-color: #c7081b;
+                border-radius: 3px;
+                height: 25px;
+                color: #fefefe;
+                font-size: 12px;
+                min-width: 10px;
+                width: auto;
+                text-align: center;
+                padding-left: 5px;
+                padding-right: 5px;
+                width: 100px;
+                border: 0;
+                height: 30px;
+            }
+
+                .buttonStyle:hover {
+                    background-color: #a90313;
+                    cursor: pointer;
+                    border-radius: 3px;
+                }
+                 .showError {
+                display: block;
+                color: red;
+            }
+
+            .hideError {
+                display: none;
+                color: red;
+            }
+        </style>*@
+    <style>
+        /*.background {
+            padding-top: 10rem;
+            padding-bottom: calc(10rem - 56px);
+            background-image: url('../../Content/Landing/img/header_.jpg');
+            background-position: center center;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }*/
+        .background {
+            padding-top: 10rem;
+            padding-bottom: calc(10rem - 56px);
+            background: url('../../Content/Landing/img/header_.jpg') no-repeat fixed 50% 0px / cover;
+            background-position: relative;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            opacity: 0.99;
+        }
+        .page-heading {
+            background: url("http://lorempixel.com/400/200") no-repeat fixed 50% 0px / cover;
+            opacity: 0.9;
+            position: relative;
+            text-align: center;
+            padding: 72px 0px;
+        }
+
+        .background:before {
+            content: "";
+            background: rgba(43, 69, 80, 0.85);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        
+        .showError {
+            display: block;
+            color: red;
+            font-size: 10px;
+        }
+
+        .hideError {
+            display: none;
+            color: red;
+        }
+        button:focus {
+             outline: none; 
+             outline: none; 
+        }
+        .logo {
+            content: "";
+            /*background: url('../../Images/ondesk-logo-title.png') no-repeat fixed 50% 0px / cover;*/
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin-top: 10% !important;
+        }
+    </style>
+</head>
+<body class="background">
+    @*<div id="showMsg" class="iziModal" style="z-index:50000"></div>
+        <div id="showError" class="iziModal" style="z-index:50000"></div>
+        <div style="width: auto; height: auto; margin-top: 5%;" id="loginForm">
+            @Html.CustomAntiForgeryToken()
+
+            <div style="width: 48%; float: left; border-right: solid 2px #c7081b; text-align: right; margin-right: 10px;">
+                <div style="padding-top: 80px; padding-right: 5px;">
+                    <img src="~/Images/logo-goes-here.png" width="570" />
+                </div><br /><br /><br />
+                <div style="padding-right: 5px; font-size: 25px;text-transform:uppercase;">CRSA</div>
+                <div style="padding-bottom: 45px;"></div>
+            </div>
+            <div style="width: 50%; float: right;">
+                <div style="font-size: 60px; color: #808080; padding-top: 35px; margin-right: 166px;text-align:right;padding-bottom: 20px;margin-top: 30px;line-height: 58px;">CRSA<br /></div>
+                <div style="margin-top: 59px;">
+
+                        <label style="font-family: 'Open Sans Condensed', sans-serif;font-size:15px">User Name</label><br />
+                        <input class="k-textbox" id="UserName" type="text" name="UserName" style="font-size:14px;"><span id="eUserName" class="hideError"></span><br>
+
+                        <div style=" margin-top:10px;">
+                        <label style="font-family: 'Open Sans Condensed', sans-serif; font-size:15px;">Password</label>
+                        </div>
+                        <input id="Password" type="password" name="Password" value="" class="k-textbox" style="font-size:14px;" />
+                        <span id="ePassword" class="hideError"></span>
+
+                        <div style="padding-top: 15px;">
+                            <button class="buttonStyle" type="button" onclick="loginUser()">Login</button>
+                        </div>
+                    </div>
+                <div style="padding-top: 32px; line-height: 13px;">
+                    <div style="float: left; width: 40%; font-size: 14px; color: #808080; ">
+                        DESIGN AND DEVELOPED BY<br />
+                        Save the Children ICT DEV TEAM
+                    </div>
+                    <div style="float: right; width: 55%; font-size: 14px; color: #808080; ">
+                        COPYRIGHT
+                        <br />
+                        Save the Children in Bangladesh
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+    @*<header class="masthead text-center text-white d-flex">*@
+    <div class="container my-auto">
+        <div class="demo">
+            <div class="login" id="loginForm" >
+                @Html.CustomAntiForgeryToken()
+                @*<div class="login__row" id="txtFull" style="border-bottom:none;color: #fff;font-size: 12px;"><span style="color:#fff; font-size: 14px;">&nbsp; SUCHANA MIS </span></div>*@
+                <div class="login__row logo" style="border-bottom:none;color: #fff;font-size: 14px; text-align:center;margin-top: -5px">
+                    <img src="~/Images/Login_Logo.png" height="50" width="150" />
+                </div>
+                <div class="login__form" >
+                    <div class="login__row">
+                        <svg class="login__icon name svg-icon" viewBox="0 0 20 20">
+                            <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
+                        </svg>
+                        <input type="text" id="UserName" style="color:#3b3d3d" class="login__input name" placeholder="Username" />
+                        <span id="eUserName" class="hideError"></span>
+                    </div>
+                    <div class="login__row">
+                        <svg class="login__icon pass svg-icon" viewBox="0 0 20 20">
+                            <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
+                        </svg>
+                        <input type="password" id="Password" style="color:#3b3d3d" class="login__input pass" placeholder="Password" />
+                        <span id="ePassword" class="hideError"></span>
+                        <span id="LoginError" style="margin-top: 20px;" class="hideError"></span>
+                    </div>
+                    <button type="button" class="login__submit" style="background-color:#DA291C">Sign in</button>
+                  @*  <p class="login__signup">Don't have an account? &nbsp;<a>Sign up</a></p>*@
+                </div>
+            </div>
+        </div>
+    </div>
+    @*</header>*@
+
+
+
+    <script src="~/Scripts/jquery-2.1.3.min.js"></script>
+    <script src="~/Scripts/Appetizer.js"></script>
+    <script src="~/Content/Landing/js/index.js"></script>
+    <script src="~/Content/Landing/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/Landing/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="~/Content/Landing/vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="~/Content/Landing/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="~/Content/Landing/js/creative.min.js"></script>
+    <script src="~/Content/Landing/js/circletype.min.js"></script>
+    <script src="@Url.Content("~/Scripts/iziModal.js")" type="text/javascript"></script>
+    <script>
+        var animating = false,
+              submitPhase1 = 1100,
+              submitPhase2 = 400,
+              logoutPhase1 = 800,
+              $login = $(".login"),
+              $app = $(".app");
+
+        function ripple(elem, e) {
+            $(".ripple").remove();
+            var elTop = elem.offset().top,
+                elLeft = elem.offset().left,
+                x = e.pageX - elLeft,
+                y = e.pageY - elTop;
+            var $ripple = $("<div class='ripple'></div>");
+            $ripple.css({ top: y, left: x });
+            elem.append($ripple);
+        };
+
+        $(document).ready(function () {
+            $('input').on('keydown', function (e) {
+                if (e.key == 'Enter') {
+                    e.preventDefault();
+                    $(".login__submit").trigger("click");
+                }
+            });
+            new CircleType(document.getElementById('txtFull'));
+        });
+
+        $(document).on("click", ".login__submit", function (e) {
+            if (animating) return;
+            animating = true;
+            var that = this;
+            loginUser(that,e);
+        });
+
+
+        function loginUser(that, e) {
+            var isFormValidate = new appetizer.formValidation();
+            isFormValidate.add('UserName', appetizer.tools.validationType.isNotEmpty, "Please enter your user name.");
+            isFormValidate.add('Password', appetizer.tools.validationType.isNotEmpty, "Please enter your password.");
+            if (isFormValidate.validate()) {
+                $(that).addClass("processing");
+                var urlpath = '@Url.Action("Login", "Account")';
+                var formData = appetizer.div.getJsonObjectFromDiv('loginForm', '0');
+                appetizer.actionCall(urlpath, formData, 'POST', function (data, result) {
+                    if (result) {
+                        var returnurl = '@ViewBag.ReturnUrl';
+                        if (returnurl != '') {
+                            ripple($(that),e);
+                            window.location = '@ViewBag.ReturnUrl';
+                        }
+                        else {
+                            ripple($(that), e);
+                            window.location.href = '@Url.Action("Index", "Home")';
+                        }
+                    }
+                    else {
+                        animating = false;
+                        $login.addClass("active");
+                        $(that).removeClass("processing");
+                        $("#LoginError").text(data.data);
+                        $("#LoginError").removeClass("hideError");
+                        $("#LoginError").addClass("showError");
+                    }
+                });
+            }
+            else {
+                animating = false;
+                $(that).removeClass("processing");
+                $login.addClass("active");
+                return false;
+            }
+        }
+
+
+        @*function fnResendMail() {
+            var formData = appetizer.div.getJsonObjectFromDiv('RegisterForm', '0');
+
+            if (formData.Email == "") {
+                appetizer.message.showError('#showError', "Please Enter Your Email", 10000);
+                return false;
+            }
+            else {
+                var urlpath = '@Url.Action("ResendMail", "Account")';
+                appetizer.actionCall(urlpath, { email: formData.Email }, function (data, result) {
+                    if (result) {
+                        appetizer.message.showInfo('#showMsg', data.data, 10000);
+                        $(document).on('closed', '#showMsg', function (e) {
+                            window.location.href = '@Url.Action("Login", "Account")';
+                        });
+                    }
+                    else {
+                        appetizer.message.showError('#showError', data.data, 10000);
+                    }
+                });
+            }
+        }*@
+        @*function forgotPassword() {
+            var urlpath = '@Url.Action("ForgotPassword", "Account")';
+
+            appetizer.actionCall(urlpath, appetizer.div.getJsonObjectFromDiv('ForgotPasswordForm', '0'), function (data, result) {
+                if (result) {
+                    appetizer.message.showInfo('#showMsg', data.data, 10000);
+                    $(document).on('closed', '#showMsg', function (e) {
+                        window.location.href = '@Url.Action("Login", "Account")';
+                    });
+                }
+                else {
+                    appetizer.message.showError('#showError', data.data, 10000);
+                }
+            });
+        }*@
+    </script>
+</body>
+</html>
+
+
+@*@section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@

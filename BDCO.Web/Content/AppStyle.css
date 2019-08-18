@@ -1,0 +1,366 @@
+﻿/*
+Plugin: jQuery Parallax
+Version 1.1.3
+Author: Ian Lunn
+Twitter: @IanLunn
+Author URL: http://www.ianlunn.co.uk/
+Plugin URL: http://www.ianlunn.co.uk/plugins/jquery-parallax/
+
+License: http://creativecommons.org/licenses/by-sa/3.0/ (Attribution Share Alike). 
+    Please attribute work to Ian Lunn simply by leaving these comments in the source code or if you'd prefer, 
+    place a link on your website to http://www.ianlunn.co.uk/.
+*/
+
+@charset "utf-8";
+/* CSS Document */
+
+body {
+    margin: 0;
+    /*min-width: 980px;*/
+    padding: 0;
+    font-family: 'Raleway';
+}
+
+p {
+    margin: 0 0 20px 0;
+}
+
+/*p, ul{
+	font-family:"Proxima Nova Light", 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	font-size-adjust:0.488;
+	font-weight:200;
+	font-style:normal;
+}*/
+
+img {
+    border: 0;
+}
+
+h1, #pixels {
+    font-family: "Museo 900", Verdana, serif;
+    font-size-adjust: 0.40;
+    font-weight: 700;
+    font-style: normal;
+}
+
+h2 {
+    font-family: "Beau Sans Pro Book", Verdana, sans-serif;
+    font-size-adjust: 0.531;
+    font-weight: 500;
+    font-style: normal;
+}
+
+#header h1, #pixels {
+    color: #48941A;
+}
+
+.float-left {
+    float: left;
+    margin: 0 0 0 0px;
+}
+
+.float-right {
+    float: right;
+    margin: 0 0px 0 0;
+}
+
+.center {
+    font-size: 2.5em;
+    padding: 80px 0 0 0;
+    text-align: center;
+}
+
+#nav {
+    list-style: none;
+    position: fixed;
+    right: 20px;
+}
+
+    #nav li {
+        margin: 0 0 15px 0;
+    }
+
+#header, #intro, #second {
+    width: 100%;
+}
+
+#services {
+    background: url(../images/service.png) 50% 0 no-repeat fixed;
+    color: white;
+    height: 700px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+#resourceDirectory {
+    background: url(../images/resource.png) 50% 0 no-repeat fixed;
+    color: white;
+    height: 675px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0;
+}
+
+    #resourceDirectory .bg {
+        background: url(../images/lookupBaby.png) no-repeat fixed;
+        height: 600px;
+        margin: 0 auto;
+        padding: 0;
+        position: absolute;
+        width: 184px;
+        left: 517px;
+        z-index: 2000;
+        /* background-size: contain; */
+    }
+
+#onlineDrive {
+    background: url(../images/service.png) 50% 0 no-repeat fixed; /*drive.jpg*/
+    color: white;
+    height: 675px;
+    /*padding: 100px 0 0 0;*/
+    padding: 0;
+}
+
+#sectorGallery {
+    height: 675px;
+    margin: 0 auto;
+    padding: 0px 0 0 0;
+}
+
+#projectDirectory {
+    background: url(../images/service.png) 50% 0 no-repeat fixed; /*projects.jpg*/
+    height: 675px;
+    margin: 0 auto;
+    padding: 0px 0 0 0;
+}
+
+#eventGallery {
+    background: url(../images/resource.png) 50% 0 no-repeat fixed; /*events.png*/
+    height: 675px;
+    margin: 0 auto;
+    padding: 0px 0 0 0;
+}
+
+#knowledgeBank {
+    background: url(../images/service.png) 50% 0 no-repeat fixed; /*bank.jpg*/
+    height: 675px;
+    margin: 0 auto;
+    padding: 0px 0 0 0;
+}
+
+#about {
+    background: url(../images/about.jpg) 50% 0 no-repeat fixed;
+    height: 675px;
+    margin: 0 auto;
+    padding: 0px 0 0 0;
+}
+
+.story {
+    margin: 0 auto;
+    /*min-width: 980px;*/
+    max-height: 650px;
+    overflow: auto;
+    width: 1100px;
+    min-height: 630px;
+}
+
+    .story .float-left, .story .float-right {
+        padding: 100px 0 0 0;
+        position: relative;
+        width: 350px;
+    }
+
+.storySector {
+    margin: 0 auto;
+    /*min-width: 980px;*/
+    max-height: 650px;
+    overflow: auto;
+    /*width: 1100px;*/
+    min-height: 630px;
+    overflow: hidden;
+}
+
+
+/*Page contant structure*/
+.pageTitle {
+    margin-left: 15%;
+    margin-bottom: 15px;
+    padding-left: 3px;
+}
+
+    .pageTitle h3 {
+        text-transform: uppercase;
+        display: inline-block;
+        color: #c20123;
+    }
+
+    .pageTitle span {
+        text-transform: lowercase;
+        color: #505050;
+    }
+
+.pageSectionTitle {
+    display: inline-block;
+    width: 15%;
+    vertical-align: top;
+    text-align: right;
+    padding-right: 8px;
+    font-size: 20px;
+    /*color: #82C201;*/
+    color: #5c8803;
+    line-height: 20px;
+}
+
+    .pageSectionTitle div {
+        margin-left: auto;
+    }
+
+.pageSectionContainer {
+    display: inline-block;
+    width: 84%;
+    border-left: 3px solid #c7c4c4;
+    padding-left: 8px;
+    margin-bottom: 25px;
+}
+
+/*Default button*/
+.odDefaultButton {
+    box-shadow: rgb(255, 255, 255) 0px 1px 0px 0px inset;
+    background: linear-gradient(rgb(255, 255, 255) 5%, rgb(246, 246, 246) 100%) rgb(255, 255, 255);
+    border-radius: 0px;
+    border: 1px solid rgb(220, 220, 220);
+    display: inline-block;
+    cursor: pointer;
+    color: rgb(102, 102, 102);
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    font-weight: 100;
+    padding: 6px 13px;
+    text-decoration: none;
+    /*text-shadow: rgb(255, 255, 255) 0px 1px 0px;*/
+}
+
+    .odDefaultButton:hover {
+        Box-shadow: rgb(171, 16, 16) 0px 1px 0px 0px inset;
+        border-radius: 0px;
+        border: 1px solid rgb(222, 14, 14);
+        display: inline-block;
+        cursor: pointer;
+        color: rgb(255, 254, 254);
+        font-family: Arial;
+        font-size: 12px;
+        font-weight: 100;
+        padding: 6px 13px;
+        text-decoration: none;
+        /*text-shadow: rgb(255, 251, 251) 0px 1px 0px;*/
+        background: linear-gradient(rgb(160, 8, 8) 5%, rgb(247, 1, 1) 100%) rgb(136, 6, 6);
+    }
+
+.odDefaultButtonWhite:hover {
+    Box-shadow: rgb(255, 255, 255) 0px 1px 0px 0px inset;
+    border-radius: 6px;
+    border: 1px solid rgb(220, 220, 220);
+    display: inline-block;
+    cursor: pointer;
+    color: rgb(102, 102, 102);
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: 100;
+    padding: 8px 13px;
+    text-decoration: none;
+    text-shadow: rgb(255, 255, 255) 0px 1px 0px;
+    background: linear-gradient(rgb(246, 246, 246) 5%, rgb(255, 255, 255) 100%) rgb(246, 246, 246);
+}
+/*End Page Content Style*/
+
+/*Tools*/
+/*Image Shadow Effect*/
+.imgShadow {
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+}
+/*Vertical text*/
+.v-text {
+    transform: rotate(90deg);
+    transform-origin: 8px 21px;
+    float: right;
+}
+
+/*Tools*/
+/*History Control Style Start*/
+.grdStaff {
+    border-bottom: 3px double #d9534f;
+}
+
+.grdTSDate {
+    border-bottom: 3px double #36c6d3;
+}
+
+.grdView {
+    /*border: 3px double #f1c40f;
+        border-radius: 0px;
+        position: absolute;
+        padding-right: 5px;
+        padding-left: 5px;
+        line-height: 14px;
+        margin-top: 4px;
+        background-color: #f1c40f;
+        cursor: pointer;*/
+    color: #de2f2f;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #de2f2f;
+    font-size: 13px;
+}
+
+    .grdView:hover {
+        /*background-color: #d9b215;*/
+        color: red;
+        font-weight: bold;
+    }
+
+.grdValue {
+    border-bottom: 3px double #d9534f;
+}
+
+.grdStatus {
+    border-bottom: 3px double #36c6d3;
+}
+
+.grdRef {
+    font-weight: bold;
+}
+
+.grdType {
+    border-bottom: 3px double #a113bb;
+}
+/*History Control Style End*/
+
+@media screen and (max-width: 768px) {
+    .pageTitle {
+        margin-left: 0;
+    }
+
+    .pageSectionTitle {
+        display: block;
+        text-align: left;
+        width: 100%;
+        padding-top: 0;
+        margin-bottom: 4px;
+    }
+
+        .pageSectionTitle div {
+            margin-left: 0;
+        }
+
+    .pageSectionContainer {
+        width: 100%;
+    }
+}
+
+@media (max-width: 668px) {
+    .pageSectionContainer {
+        width: 100%;
+    }
+}

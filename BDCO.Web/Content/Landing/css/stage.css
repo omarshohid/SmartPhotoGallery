@@ -1,0 +1,133 @@
+﻿/* --- VARS --- */
+/* --- MIXINS --- */
+/* --- DEMO CONTENT--- */
+.navbarStage-menu {
+  border: 0;
+  border-radius: 0;
+}
+.navbarStage-menu .navbarStage-collapse {
+  padding: 0;
+  border-top: 0;
+}
+.navbarStage-main {
+  margin: 0;
+}
+.navbarStage-menu {
+  background-color: #7352a4;
+}
+.navbarStage-menu .navbarStage-header {
+  padding: 7px;
+}
+.navbarStage-main > li > a {
+  font-size: 25px;
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: uppercase;
+  -webkit-transition: 0.2s color ease-in-out;
+  transition: 0.2s color ease-in-out;
+  -webkit-transition: 0.2s background ease-in-out;
+  transition: 0.2s background ease-in-out;
+}
+.navbarStage-main > li > a small {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 300;
+  text-transform: none;
+}
+.navbarStage-main > li > a:hover,
+.navbarStage-main > li > a:focus,
+.navbarStage-main > li > a.active {
+  background-color: #ffffff;
+  color: #583e7e;
+}
+.navbarStage-main > li > a:hover small,
+.navbarStage-main > li > a:focus small,
+.navbarStage-main > li > a.active small {
+  color: #000;
+}
+@media (min-width: 768px) {
+  .navbarStage-main-container {
+    background-color: #7352a4;
+    background-repeat: repeat-x;
+    background-image: -webkit-gradient(linear, 50% top, 50% top, from(#7352a4), to(#583e7e));
+    background-image: -webkit-linear-gradient(left, color-stop(#7352a4 50%), color-stop(#583e7e 50%));
+    background-image: -moz-linear-gradient(left, #7352a4 50%, #583e7e 50%);
+    background-image: linear-gradient(to right, #7352a4 50%, #583e7e 50%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7352a4', endColorstr='#583e7e', GradientType=1);
+    /* IE6-9 */
+  }
+  .navbarStage-main-container .navbarStage-nav {
+    float: none;
+  }
+  .navbarStage-main {
+    margin: 0 auto;
+    padding-right: 40px;
+    max-width: 730px;
+  }
+  .navbarStage-main li {
+    display: inline-block;
+    height: 35px;
+    position: relative;
+   width: 24%;
+   margin-right: -4px;
+    background-color: #583e7e;
+    background-repeat: repeat-x;
+    background-image: -webkit-gradient(linear, 0% top, 100% top, from(#583e7e), to(#7352a4));
+    background-image: -webkit-linear-gradient(left, color-stop(#583e7e 0%), color-stop(#7352a4 100%));
+    background-image: -moz-linear-gradient(left, #583e7e 0%, #7352a4 100%);
+    background-image: linear-gradient(to right, #583e7e 0%, #7352a4 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#583e7e', endColorstr='#7352a4', GradientType=1);
+    /* IE6-9 */
+  }
+  .navbarStage-main li:first-child:before {
+    border: 18px solid transparent;
+    /*border-left-color: #7352a4;*/
+    border-left-color: #fff;
+    border-right: 0;
+    content: " ";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0px;
+    width: 0px;
+    z-index: 10;
+  }
+   
+  .navbarStage-main li a {
+    display: table;
+    height: 100%;
+    padding: 0 0 0 66.66666667px;
+    position: relative;
+    width: 100%;
+  }
+  .navbarStage-main li a:after {
+    border: 17.5px solid transparent;
+    border-left-color: #7352a4;
+    border-right: 0;
+    content: " ";
+    display: block;
+    position: absolute;
+    right: -18px;
+    top: 0px;
+    width: 0px;
+    z-index: 10;
+    -webkit-transition: 0.2s border-color ease-in-out;
+    transition: 0.2s border-color ease-in-out;
+  }
+  .navbarStage-main li a:hover:after,
+  .navbarStage-main li a.active:after {
+    border-left-color: #ffffff;
+  }
+  .navbarStage-main li a span {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+@media (min-width: 992px) {
+  .navbarStage-main {
+    max-width: 980px;
+  }
+  .navbarStage-main li a {
+    padding: 0 0 0 80px;
+  }
+}

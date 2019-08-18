@@ -1,0 +1,511 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN @ViewBag.Title - PHOTO GALLERY</title>
+    @Styles.Render("~/Content/css")
+
+    @*<script src="~/Scripts/KendoUI/kendo.all.min.intellisense.js"></script>*@
+
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/suchana")
+
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet">
+    <link href="~/Content/sweetalert.css" rel="stylesheet" />
+    <link href="~/Content/iziModal.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/foobox.min.css" />
+    <!-- For paggination -->
+    <link href="~/Content/simplePagination.css" rel="stylesheet" />
+
+    <link href="~/css/animate.css" rel="stylesheet" type="text/css">
+    @*<link href="~/css/style-main.css" rel="stylesheet" type="text/css">*@
+    @*<link href="~/css/css-plugin-collections.css" rel="stylesheet" />*@
+    <!-- CSS | Preloader Styles -->
+    <link href="~/css/preloader.css" rel="stylesheet" type="text/css">
+    <link href="~/css/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <!-- JS | jquery plugin collection for this theme -->
+    <script src="~/js/jquery-plugin-collection.js"></script>
+    <!-- JS | Custom script for all pages -->
+    <script src="~/js/custom.js"></script>
+    <script src="~/js/jquery-ui.min.js"></script>
+    <style type="text/css">
+        html {
+            height: 100%;
+            position: relative;
+        }
+
+        .footerSection {
+            background-color: #555;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            color: white;
+            height: 100px;
+        }
+
+            .footerSection footer {
+                width: 972px;
+                margin-left: auto;
+                margin-right: auto;
+                padding-top: 20px;
+            }
+
+        .alert {
+            color: #F44336;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .showError {
+            display: block;
+            color: red;
+        }
+
+        .hideError {
+            display: none;
+            color: red;
+        }
+
+
+        .block {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .block__title, .block__subtitle {
+            flex-basis: 100%;
+            width: 100%;
+            height: auto;
+            margin: 0;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .block__title {
+            align-self: flex-end;
+            padding-bottom: 3rem;
+        }
+
+        .block__subtitle {
+            align-self: flex-start;
+            color: #fff;
+            font-family: serif;
+            font-style: italic;
+            font-weight: 100;
+            opacity: 0.6;
+            letter-spacing: 1px;
+        }
+
+            .block__subtitle a {
+                /*color: #fff;*/
+            }
+
+                .block__subtitle a:hover {
+                    text-decoration: none;
+                }
+
+        .btn {
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn__trigger {
+            transition: box-shadow 300ms ease-in-out;
+            position: fixed;
+            z-index: 10;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            display: block;
+            border-radius: 50px;
+        }
+
+        .btn__trigger--views {
+            width: 7rem;
+            height: 7rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            background-color: #F44336;
+            color: #fff;
+            font-size: 1rem;
+            line-height: 53px;
+            font-weight: 700;
+            text-align: center;
+            font-size: 16px;
+            font-family: 'Oswald', sans-serif;
+            padding: 9px;
+        }
+
+            .btn__trigger--views:hover {
+                box-shadow: 0 14px 10px rgba(0, 0, 0, 0.24), 0 10px 10px rgba(0, 0, 0, 0.24);
+            }
+
+        .my-nav {
+            position: fixed;
+            opacity: 0;
+        }
+
+            .my-nav.reveal {
+                visibility: visible;
+                opacity: 1;
+            }
+
+                .my-nav.reveal:after {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    z-index: -1;
+                    display: block;
+                    content: "";
+                    /*background-color: rgba(42, 196, 159, 0.7);*/
+                }
+
+        .my-nav--list {
+            visibility: hidden;
+            bottom: 6.5rem;
+            right: 1.75rem;
+            text-align: right;
+        }
+
+        .my-nav__item {
+            transition: opacity 150ms ease-in-out;
+            display: block;
+            font-size: 0.90rem;
+            opacity: 0;
+        }
+
+            .my-nav__item.visible {
+                visibility: visible;
+                opacity: 1;
+            }
+
+        .my-nav__link {
+            transition: background-color 150ms ease-in-out;
+            display: inline-block;
+            width: auto;
+            margin: 1rem 0;
+            padding: 0.50rem 0.7rem;
+            /*box-shadow: inset 0 0 0 1px #fff;*/
+            border-radius: 25px;
+            color: #fff;
+            font-size: 11px;
+            font-family: 'Raleway';
+        }
+
+        .my-nav__link--template:hover {
+            background-color: #f3f1ed;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .my-nav__link--new {
+            transition: box-shadow 300ms ease-in-out;
+            border-radius: 3px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            background-color: #e0dbd9;
+            color: #fff;
+        }
+
+            .my-nav__link--new:hover {
+                box-shadow: 0 14px 10px rgba(0, 0, 0, 0.24), 0 10px 10px rgba(0, 0, 0, 0.24);
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        .my-nav__link:last-child {
+            margin-bottom: 0;
+            border: 1px solid #d3d4d3;
+            color: #441a1a;
+        }
+
+        .navbar-default .navbar-nav > .open > a,
+        .navbar-default .navbar-nav > .open > a:hover,
+        .navbar-default .navbar-nav > .open > a:focus {
+            color: #fff;
+            background-color: #fc9928;
+        }
+
+        .nav .open > a,
+        .nav .open > a:hover,
+        .nav .open > a:focus {
+            background-color: #fc9928;
+            border-color: #337ab7;
+        }
+
+        label {
+            text-transform: uppercase;
+            font-weight: 200;
+            font-size: 12px;
+            font-family: 'Raleway', sans-serif;
+            color: #505050;
+        }
+
+        .tableHead td, .tableHead th {
+            font-weight: 100;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-family: 'Raleway', sans-serif;
+            color: #505050;
+            background-color: #f9f9f9;
+        }
+
+        .tableBody > tbody > tr > td {
+            padding-top: 4px;
+            padding-bottom: 4px;
+            line-height: 24px;
+        }
+
+        .container-fluid {
+            width: 1109px;
+        }
+
+        @@media (max-width: 668px) {
+            .footerSection footer {
+                width: 100%;
+                padding-left: 10px;
+            }
+
+            .appLogo {
+                /*padding-top: 5px;*/
+                margin-top: -5px;
+                /*padding-left: 21px;*/
+                margin-left: -15px;
+            }
+
+            .btnHis {
+                margin-bottom: -25px;
+            }
+        }
+
+        .hvr-underline-from-center:before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            left: 50%;
+            right: 50%;
+            bottom: 0;
+            /* background: #2098d1; */
+            background: #fc9928;
+            height: 4px;
+            -webkit-transition-property: left, right;
+            transition-property: left, right;
+            -webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+            -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+        }
+
+        .scrollToTop {
+            background: rgba(0, 0, 0, 0.1);
+            bottom: 15px;
+            display: none;
+            height: 50px;
+            padding: 2px;
+            position: fixed;
+            right: 15px;
+            text-align: center;
+            text-decoration: none;
+            width: 50px;
+            z-index: 99999;
+        }
+
+            .scrollToTop i {
+                color: #fff;
+                font-size: 42px;
+            }
+
+        .menuzord-menu > li {
+            padding: 10px 0px 5px 0px !important;
+        }
+
+        .menuzord-brand {
+            margin: 5px 30px 5px 0 !important;
+            float: left;
+            color: #666;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.3;
+            cursor: pointer;
+        }
+    </style>
+
+
+</head>
+
+<body style="background-color:#fefefe;position:relative;  min-height: 100%; margin: 0;">
+    <div id="showMsg" class="iziModal" style="z-index:99999999999;"></div>
+    <div id="showErrorMsg" class="iziModal" style="z-index:99999999999"></div>
+    @*<input id="EmployeeID" type="hidden" value="1889"/>*@
+    <!-- preloader -->
+    <div id="preloader">
+        <div id="spinner">
+            <img alt="" src="~/images/preloaders/4.gif">
+        </div>
+    </div>
+    <!-- Header -->
+
+    <div class="contain-to-grid header-section">
+        <!-- TOPBAR SECTION -->
+        <nav class="top-bar important-class" data-topbar>
+
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="appLogo" style="margin-top:-5px !important"><img src="~/Images/logo-wide-white.png" alt="" id="logo-image" style="width:80px;"></div>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    @Html.Action("Index", "Navbar")
+                </div><!-- /.container-fluid -->
+            </nav>
+        </nav> <!-- END TOPBAR SECTION -->
+    </div>
+
+    <div id="randerDiv" class="container body-content" style="min-height:612px; border: 1px solid rgba(20,53,80,0.14);box-shadow: 0 1px 2px 1px rgba(0,0,0,.08), 0 3px 6px rgba(0,0,0,.08);">
+        @RenderBody()
+        <div style="height:0px;clear:both;"></div>
+    </div>
+    <div class="footerSection" style="height:50px; position:relative">
+        <footer style="width:85%">
+            <p style="margin:0px !important; line-height:15px !important; padding-bottom: 0px !important;">&copy; @DateTime.Now.Year - Save The Children Bangladesh</p>
+        </footer>
+    </div>
+    <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+
+    @*<script src="~/Scripts/jquery-2.1.3.min.js"></script>
+        <script src="~/Scripts/Appetizer.js"></script>
+        <script src="~/Scripts/iziModal.js"></script>
+        <script src="~/Scripts/sweetalert.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <script src="~/Scripts/jquery.smartmenus.js"></script>
+        <script src="~/Scripts/jquery.smartmenus.bootstrap.js"></script>
+        <script src="~/Scripts/KendoUI/kendo.web.min.js"></script>*@
+
+    @*Image Base 64*@
+    @*<script src="~/Scripts/base64js.min.js"></script>*@
+    @*<script src="~/Scripts/KendoUI/kendo.all.min.js"></script>*@
+
+    <!-- For gallery -->
+    <script type='text/javascript' src='~/js/foobox.min.js'></script>
+    <!-- For paggination -->
+    <script src="~/Scripts/jquery.simplePagination.js"></script>
+
+    <script src="~/Scripts/jquery.signalR-2.2.2.js"></script>
+    <script src="~/SignalR/hubs"></script>
+
+
+    <script>
+        function initFancyBox() {
+            (function (FOOBOX, $, undefined) {
+                FOOBOX.o = { wordpress: { enabled: true }, pan: { enabled: true, showOverview: true, position: "fbx-top-right" }, deeplinking: { enabled: true, prefix: "foobox" }, excludes: '.fbx-link,.nofoobox,.nolightbox,a[href*="pinterest.com/pin/create/button/"]', affiliate: { enabled: false }, slideshow: { enabled: true }, social: { "enabled": true, "position": "fbx-above", "excludes": ["iframe", "html"], "nonce": "180f6be063", "networks": ["facebook", "google-plus", "twitter", "pinterest", "linkedin", "buffer", "digg", "tumblr", "reddit"] }, preload: true };
+                FOOBOX.init = function () {
+                    $(".fbx-link").removeClass("fbx-link");
+                    $(".gallery").foobox(FOOBOX.o);
+                    $(".wp-block-gallery").foobox(FOOBOX.o);
+                    $(".foogallery-container.foogallery-lightbox-foobox").foobox(FOOBOX.o);
+                    $(".foogallery-container.foogallery-lightbox-foobox-free").foobox(FOOBOX.o);
+                    $(".foobox, [target=\"foobox\"]").foobox(FOOBOX.o);
+                    $(".wp-caption").foobox(FOOBOX.o);
+                    $(".wp-block-image").foobox(FOOBOX.o);
+                    $("a:has(img[class*=wp-image-])").foobox(FOOBOX.o);
+
+                };
+            }(window.FOOBOX = window.FOOBOX || {}, FooBox.$));
+
+            jQuery(function () {
+
+                jQuery("body").append("<span aria-hidden=\"true\" class=\"foobox_font_preload\" style=\"font-family:'foobox'; color:transparent; position:absolute; top:-9999px; left: -9999px;\">f</span>");
+                FOOBOX.init();
+                jQuery(document).trigger("foobox-after-init");
+                jQuery('body').on('post-load', function () { FOOBOX.init(); });
+
+            });
+
+            if (window.addEventListener) {
+                window.addEventListener("DOMContentLoaded", function () {
+                    var arr = document.querySelectorAll("script[type='text/foobox']");
+                    for (var x = 0; x < arr.length; x++) {
+                        var script = document.createElement("script");
+                        script.type = "text/javascript";
+                        script.innerHTML = arr[x].innerHTML;
+                        arr[x].parentNode.replaceChild(script, arr[x]);
+                    }
+                });
+            } else {
+                console.log("FooBox does not support the current browser.");
+            }
+        }
+
+        function setAutoCompleteTag(id) {
+            $("#" + id).autocomplete({
+                source: function (request, response) {
+                    var text = request.term;
+                    var pieces = text.split(/[\s,]+/);
+                    var str = "";
+                    for (var i = 0; i < pieces.length - 1; i++) {
+                        str += pieces[i] + ',';
+                    }
+                    str = $.trim(str);
+                    //if (!isEmpty(str))
+                    //{
+                    //    str += ',';
+                    //}
+
+                    //console.log(str);
+                    request.term = pieces[pieces.length - 1];
+                    $.ajax({
+                        url: "/Home/LoadAllTags",
+                        type: "POST",
+                        dataType: "json",
+                        data: { Prefix: request.term },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return { label: item.TagName, value: str + item.TagName + ',' };
+                            }))
+                        }
+                    })
+                },
+                messages: {
+                    noResults: "", results: ""
+                }
+            });
+        }
+
+        function isEmpty(el) {
+            return !$.trim(el)
+        }
+        function presizeTag(id) {
+            var tags = $('#' + id).val();
+            tags = $.trim(tags);
+            if (tags[tags.length - 1] == ',') {
+                tags = tags.slice(0, -1)
+            }
+            return tags;
+        }
+
+    </script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

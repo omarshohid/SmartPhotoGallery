@@ -1,0 +1,840 @@
+﻿<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+<style type="text/css">
+    .fbx-show.fbx-social-share .fbx-social {
+        visibility: hidden !important;
+        opacity: 1;
+    }
+
+    .main-search-input {
+        background: #fff;
+        padding: 0 120px 0 0;
+        border-radius: 30px;
+        margin-top: 10px;
+        box-shadow: 0px 0px 0px 10px rgba(255,255,255,0.3);
+    }
+
+    .main-search-input-item {
+        float: left;
+        width: 33.3%;
+        box-sizing: border-box;
+        border-right: 1px solid #eee;
+        height: 50px;
+        position: relative;
+    }
+
+    .main-search-input-item {
+        float: left;
+        width: 33.3%;
+        box-sizing: border-box;
+        border-right: 1px solid #eee;
+        height: 50px;
+        position: relative;
+        border: none;
+        outline: 0;
+        font-weight: inherit;
+        font-style: inherit;
+        font-size: 100%;
+        font-family: inherit;
+        vertical-align: baseline;
+        text-decoration: none;
+        margin: 0;
+        /* padding: 0; */
+    }
+
+
+    .main-search-input-item {
+        float: left;
+        width: 33.3%;
+        box-sizing: border-box;
+        border-right: 1px solid #eee !important;
+        height: 50px;
+        position: relative;
+        border: none;
+        outline: 0;
+        font-weight: inherit;
+        font-style: inherit;
+        font-size: 100%;
+        font-family: inherit;
+        vertical-align: baseline;
+        text-decoration: none;
+        margin: 0;
+    }
+
+    .main-search-button {
+        position: absolute;
+        right: 0px;
+        height: 50px;
+        width: 120px;
+        color: #fff;
+        top: 0;
+        border: none;
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 30px;
+        cursor: pointer;
+    }
+
+    .fl-wrap {
+        float: left;
+        width: 100%;
+        position: relative;
+    }
+
+    .main-search-input-item input:first-child {
+        border-radius: 100%;
+    }
+
+    .main-search-input-item input {
+        float: left;
+        border: none;
+        width: 100%;
+        height: 50px;
+        padding-left: 20px;
+    }
+
+    #autocomplete-input {
+        position: relative;
+        z-index: 5;
+    }
+
+    .main-search-input-item.location a {
+        color: #FC9928;
+        position: absolute;
+        top: 15px;
+        right: 22px;
+        z-index: 500;
+    }
+
+    .main-search-input-item .nice-select {
+        color: #292929;
+        float: left;
+        width: 100%;
+        border: none;
+        min-width: 150px;
+        height: 50px;
+        z-index: 100;
+        line-height: 50px;
+    }
+
+        .navslide-wrap, .slide-progress, nav li a.act-link:before, .hs-nav .navslide-wrap.next-slide-wrap a, .folio-counter, .add-list, .section-separator:before, .listing-carousel-wrap .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active, .card-btn:hover, .footer-widget #subscribe-button, .custom-form .log-submit-btn, .add-list, .parallax-section .section-separator:before, .sw-btn, .color-bg, .mapzoom-in, .mapzoom-out, .infoBox-close, .close-reg, .header-search-button, .listing-view-layout li a, .listsearch-input-item .selectbox, .rangeslider__fill, .fs-map-btn, .more-filter-option span, .back-to-filters, .back-to-filters span, .pin, .load-more-button, .footer-menu li:before, .pagination a.current-page, .pagination a:hover, .section-title .breadcrumbs a:before, .showshare, .scroll-nav-wrapper .scroll-nav li a:before, .list-single-main-wrapper .breadcrumbs, .list-widget-social li a, .btn.transparent-btn:hover, .btn.flat-btn, .accordion a.toggle.act-accordion, .custom-form .quantity input.qty, .widget-posts-link span, .box-item a.gal-link, .custom-form .selectbox, .photoUpload, .user-profile-menu li a span, .tabs-menu li.current a, .tabs-menu li a:hover, .header-social li a:hover, .main-search-button, .selectbox li:hover, .color-overlay, .trs-btn, .testi-counter, .to-top, .header-sec-link a, .card-btn, .profile-edit-page-header .breadcrumbs a:before, .dashboard-listing-table-opt li a.del-btn, .search-widget .search-submit, .box-widget-item .list-single-tags a, .reviews-comments-item-text .new-dashboard-item:hover, .step-item, .video-box-btn, .slick-dots li.slick-active button, .time-line-container:before, .error-wrap form .search-submit, .testimonials-carousel .slick-current .testimonilas-text, .cs-social li a, .cs-countdown-item:before, .listing-counter, .price-head, .price-link, .sp-cont:hover, .cluster div, .lg-actions .lg-next, .lg-actions .lg-prev, .log-out-btn:hover, .map-popup-category, .mapnavigation a:hover, .listsearch-input-item .nice-select, .listsearch-input-item .nice-select .list li.selected.focus, .listsearch-input-item .nice-select .list li:hover, .listsearch-input-item .nice-select .list li.selected, .custom-form .nice-select .list li:hover, .custom-form .nice-select .list li.selected, .custom-form .nice-select, .header-search-select-item .nice-select .list li:hover, .header-search-select-item .nice-select .list li.selected, .main-search-input-item .nice-select .list li:hover, .main-search-input-item .nice-select .list li.selected, .pac-item:hover {
+            background: #DA291C !important;
+            color: #FFF;
+        }
+
+    .intro-item h2 {
+        font-size: 54px;
+        color: #fff;
+        font-weight: 700;
+        padding-bottom: 20px;
+        vertical-align: baseline;
+        text-decoration: none;
+        text-align: center;
+        font-family: 'Varela Round', sans-serif;
+    }
+
+    .intro-item h3 {
+        color: #fff;
+        font-size: 13px;
+        font-weight: 500;
+        vertical-align: baseline;
+        text-decoration: none;
+        text-align: center;
+        font-family: georgia, sans-serif;
+    }
+
+    ul.list li {
+        margin: 5px 0;
+        font-weight: 500;
+        padding-left: 15px;
+        position: initial;
+        /* position: relative; */
+    }
+</style>
+<link href="~/Content/plugins.css" rel="stylesheet" />
+<section class="inner-header " style="background-color: #4DB7FE !important;">
+    @* layer-overlay  overlay-theme-colored-7  data-bg-img="http://placehold.it/1920x820" *@
+    <div style="width:100%; height:100%;background-repeat: no-repeat;background-size: cover;background-image: url('/Images/banner_search.jpg');">
+        <div class="container pt-30 pb-30">
+            <!-- Section Content -->
+            <div class="section-content">
+                <div class="row">
+                    <div class="intro-item fl-wrap">
+                        <h2>We will help you to find all</h2>
+                        <h3></h3>
+                    </div>
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="row">
+                            <div class="col-md-2" style="font-family:'Varela Round', sans-serif;font-size:24px;color:#fff">
+                                What?
+                            </div>
+                            <div class="col-md-2 col-md-offset-1" style="font-family:'Varela Round', sans-serif;font-size:24px;color:#fff;padding-left: 5%;">
+                                Events?
+                            </div>
+                            <div class="col-md-2 col-md-offset-1" style="font-family:'Varela Round', sans-serif;font-size:24px;color:#fff; padding-left: 8%;">
+                                Categories?
+                            </div>
+                        </div>
+                        <div class="main-search-input fl-wrap">
+                            <div class="main-search-input-item">
+                                <input type="text" id="writtenText" placeholder="What are you looking for?" value="">
+                            </div>
+                            @*<div class="main-search-input-item location" id="autocomplete-container">
+                                    <input type="text" placeholder="Event" id="autocomplete-input" value="" autocomplete="off">
+                                    <a href="#"><i class="fa fa-dot-circle-o"></i></a>
+                                </div>*@
+                            <div class="main-search-input-item">
+                                <select data-placeholder="All Events" id="ddlEvents" class="chosen-select" style="display: none;"></select>
+                            </div>
+                            <div class="main-search-input-item">
+                                <select data-placeholder="All Categories" id="ddlCategory" class="chosen-select" style="display: none;"></select>
+                            </div>
+                            <button class="main-search-button" id="btnSearch">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container mt-30 mb-30 pt-30 pb-30">
+        <div class="row">
+            <div class="col-md-9 pull-right flip sm-pull-none">
+                <div class="blog-posts">
+                    <div class="col-md-12">
+                        <div class="row list-dashed">
+                            <div id="GalleryDiv" class="row foogallery foogallery-container foogallery-polaroid_new fg-simple_portfolio fg-preset fg-polaroid foogallery-lightbox-foobox fg-polaroid_new fg-light fg-border-thin fg-shadow-outline fg-loading-default fg-loaded-fade-in fg-custom fg-caption-always fg-hover-fade fg-hover-zoom fbx-instance" data-foogallery="{&quot;item&quot;:{&quot;showCaptionTitle&quot;:true,&quot;showCaptionDescription&quot;:true},&quot;lazy&quot;:true,&quot;src&quot;:&quot;data-src-fg&quot;,&quot;srcset&quot;:&quot;data-srcset-fg&quot;,&quot;template&quot;:{&quot;gutter&quot;:40,&quot;align&quot;:&quot;center&quot;}}" data-fg-common-fields="1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="pagination-holder">
+                            <div id="light-pagination" class="pagination light-theme simple-pagination">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3" style="border-right: 1px solid #eeeeee !important;">
+                <div class="sidebar sidebar-right mt-sm-30">
+                    <div class="widget">
+                        <h5 class="widget-title line-bottom-theme-colored-2">CATEGORY</h5>
+                        <ul class="list-divider list-border list check" id="category"></ul>
+                    </div>
+                    <div class="widget">
+                        <h5 class="widget-title line-bottom-theme-colored-2">Latest Photos</h5>
+                        <div class="owl-carousel-1col" id="latestPhotos">
+                            <div class="item">
+                            </div>
+                            <div class="item">
+                            </div>
+                            <div class="item">
+                            </div>
+                            <div class="item">
+                            </div>
+                            <div class="item">
+                            </div>
+                            <div class="item">
+                            </div>
+                            <div class="item">
+                            </div>
+                            <div class="item">
+                            </div>
+                            <div class="item">
+                            </div>
+                            <div class="item">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <h5 class="widget-title line-bottom-theme-colored-2">Tags</h5>
+                        <div class="tags" id="popularTags">
+                            <a href="#">travel</a>
+                            <a href="#">blog</a>
+                            <a href="#">lifestyle</a>
+                            <a href="#">feature</a>
+                            <a href="#">mountain</a>
+                            <a href="#">design</a>
+                            <a href="#">restaurant</a>
+                            <a href="#">journey</a>
+                            <a href="#">classic</a>
+                            <a href="#">sunset</a>
+                        </div>
+                    </div>
+                    @*<div class="">
+                            <a id="downloadPic" target="_blank" href="#" download="image.jpg">Download</a>
+                        </div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    $(document).ready(function () {
+        LoadCategory();
+        LoadEvents();
+        LoadImage(1, '', '', '', '');
+        LoadRecentPhotos();
+        LoadTags();
+
+
+
+    });
+    var totalRecord = 0;
+    $flag = 0;
+    $sectedCategory = '';
+    $sectedTag = '';
+
+    function setPaggination(pageNo) {
+        $('#light-pagination').pagination({
+            items: totalRecord / 15,
+            cssStyle: 'light-theme',
+            currentPage: pageNo,
+            onPageClick: function (pageNumber, e) {
+                if ($flag == 1) {
+                    LoadImageByCategory(pageNumber, $sectedCategory);
+                }
+                else if ($flag == 2) {
+                    LoadImageByTag(pageNumber, $sectedTag);
+                }
+                else {
+                    LoadImage(pageNumber);
+                }
+            }
+        });
+    }
+
+    $('#btnSearch').click(function () {
+        var text = $('#writtenText').val();
+        var event = $('#ddlEvents').val();
+        var category = $('#ddlCategory').val();
+        console.log(text);
+        console.log(event);
+        console.log(category);
+        if (event == "All Events") {
+            event = '';
+        }
+        if (category == "All Categories") {
+            category = '';
+        }
+        LoadImage(1, text, event, category, text);
+    });
+
+    $("#writtenText").change(function () {
+        var text = $('#writtenText').val();
+        if (text == "") {
+            LoadImage(1, '', '', '', '');
+        }
+    });
+
+
+
+    $.fn.niceSelect = function (method) {
+
+        // Methods
+        if (typeof method == 'string') {
+            if (method == 'update') {
+                this.each(function () {
+                    var $select = $(this);
+                    var $dropdown = $(this).next('.nice-select');
+                    var open = $dropdown.hasClass('open');
+
+                    if ($dropdown.length) {
+                        $dropdown.remove();
+                        create_nice_select($select);
+
+                        if (open) {
+                            $select.next().trigger('click');
+                        }
+                    }
+                });
+            } else if (method == 'destroy') {
+                this.each(function () {
+                    var $select = $(this);
+                    var $dropdown = $(this).next('.nice-select');
+
+                    if ($dropdown.length) {
+                        $dropdown.remove();
+                        $select.css('display', '');
+                    }
+                });
+                if ($('.nice-select').length == 0) {
+                    $(document).off('.nice_select');
+                }
+            } else {
+                console.log('Method "' + method + '" does not exist.')
+            }
+            return this;
+        }
+
+        // Hide native select
+        this.hide();
+
+        // Create custom markup
+        this.each(function () {
+            var $select = $(this);
+
+            if (!$select.next().hasClass('nice-select')) {
+                create_nice_select($select);
+            }
+        });
+
+        function create_nice_select($select) {
+            $select.after($('<div></div>')
+                .addClass('nice-select')
+                .addClass($select.attr('class') || '')
+                .addClass($select.attr('disabled') ? 'disabled' : '')
+                .addClass($select.attr('multiple') ? 'has-multiple' : '')
+                .attr('tabindex', $select.attr('disabled') ? null : '0')
+                .html($select.attr('multiple') ? '<span class="multiple-options"></span><div class="nice-select-search-box"><input type="text" class="nice-select-search" placeholder="Search..."/></div><ul class="list"></ul>' : '<span class="current"></span><div class="nice-select-search-box"><input type="text" class="nice-select-search" placeholder="Search..."/></div><ul class="list"></ul>')
+            );
+
+            var $dropdown = $select.next();
+            var $options = $select.find('option');
+            if ($select.attr('multiple')) {
+                var $selected = $select.find('option:selected');
+                var $selected_html = '';
+                $selected.each(function () {
+                    $selected_option = $(this);
+                    $selected_text = $selected_option.data('display') || $selected_option.text();
+                    $selected_html += '<span class="current">' + $selected_text + '</span>';
+                });
+                $select_placeholder = $select.data('placeholder') || $select.attr('placeholder');
+                $select_placeholder = $select_placeholder == '' ? 'Select' : $select_placeholder;
+                $selected_html = $selected_html == '' ? $select_placeholder : $selected_html;
+                $dropdown.find('.multiple-options').html($selected_html);
+            } else {
+                var $selected = $select.find('option:selected');
+                $dropdown.find('.current').html($selected.data('display') || $selected.text());
+            }
+
+
+            $options.each(function (i) {
+                var $option = $(this);
+                var display = $option.data('display');
+
+                $dropdown.find('ul').append($('<li></li>')
+                    .attr('data-value', $option.val())
+                    .attr('data-display', (display || null))
+                    .addClass('option' +
+                        ($option.is(':selected') ? ' selected' : '') +
+                        ($option.is(':disabled') ? ' disabled' : ''))
+                    .html($option.text())
+                );
+            });
+        }
+
+        /* Event listeners */
+
+        // Unbind existing events in case that the plugin has been initialized before
+        $(document).off('.nice_select');
+
+        // Open/close
+        $(document).on('click.nice_select', '.nice-select', function (event) {
+            var $dropdown = $(this);
+
+            $('.nice-select').not($dropdown).removeClass('open');
+            $dropdown.toggleClass('open');
+
+            if ($dropdown.hasClass('open')) {
+                $dropdown.find('.option');
+                $dropdown.find('.nice-select-search').val('');
+                $dropdown.find('.nice-select-search').focus();
+                $dropdown.find('.focus').removeClass('focus');
+                $dropdown.find('.selected').addClass('focus');
+                $dropdown.find('ul li').show();
+            } else {
+                $dropdown.focus();
+            }
+        });
+
+        $(document).on('click', '.nice-select-search-box', function (event) {
+            event.stopPropagation();
+            return false;
+        });
+
+
+        // Close when clicking outside
+        $(document).on('click.nice_select', function (event) {
+            if ($(event.target).closest('.nice-select').length === 0) {
+                $('.nice-select').removeClass('open').find('.option');
+            }
+        });
+
+        // Option click
+        $(document).on('click.nice_select', '.nice-select .option:not(.disabled)', function (event) {
+            var $option = $(this);
+            var $dropdown = $option.closest('.nice-select');
+            if ($dropdown.hasClass('has-multiple')) {
+                if ($option.hasClass('selected')) {
+                    $option.removeClass('selected');
+                } else {
+                    $option.addClass('selected');
+                }
+                $selected_html = '';
+                $selected_values = [];
+                $dropdown.find('.selected').each(function () {
+                    $selected_option = $(this);
+                    var text = $selected_option.data('display') || $selected_option.text()
+                    $selected_html += '<span class="current">' + text + '</span>';
+                    $selected_values.push($selected_option.data('value'));
+                });
+                $select_placeholder = $dropdown.prev('select').data('placeholder') || $dropdown.prev('select').attr('placeholder');
+                $select_placeholder = $select_placeholder == '' ? 'Select' : $select_placeholder;
+                $selected_html = $selected_html == '' ? $select_placeholder : $selected_html;
+                $dropdown.find('.multiple-options').html($selected_html);
+                $dropdown.prev('select').val($selected_values).trigger('change');
+            } else {
+                $dropdown.find('.selected').removeClass('selected');
+                $option.addClass('selected');
+                var text = $option.data('display') || $option.text();
+                $dropdown.find('.current').text(text);
+                $dropdown.prev('select').val($option.data('value')).trigger('change');
+            }
+        });
+
+        // Keyboard events
+        $(document).on('keydown.nice_select', '.nice-select', function (event) {
+            var $dropdown = $(this);
+            var $focused_option = $($dropdown.find('.focus') || $dropdown.find('.list .option.selected'));
+
+            // Space or Enter
+            if (event.keyCode == 32 || event.keyCode == 13) {
+                if ($dropdown.hasClass('open')) {
+                    $focused_option.trigger('click');
+                } else {
+                    $dropdown.trigger('click');
+                }
+                return false;
+                // Down
+            } else if (event.keyCode == 40) {
+                if (!$dropdown.hasClass('open')) {
+                    $dropdown.trigger('click');
+                } else {
+                    var $next = $focused_option.nextAll('.option:not(.disabled)').first();
+                    if ($next.length > 0) {
+                        $dropdown.find('.focus').removeClass('focus');
+                        $next.addClass('focus');
+                    }
+                }
+                return false;
+                // Up
+            } else if (event.keyCode == 38) {
+                if (!$dropdown.hasClass('open')) {
+                    $dropdown.trigger('click');
+                } else {
+                    var $prev = $focused_option.prevAll('.option:not(.disabled)').first();
+                    if ($prev.length > 0) {
+                        $dropdown.find('.focus').removeClass('focus');
+                        $prev.addClass('focus');
+                    }
+                }
+                return false;
+                // Esc
+            } else if (event.keyCode == 27) {
+                if ($dropdown.hasClass('open')) {
+                    $dropdown.trigger('click');
+                }
+                // Tab
+            } else if (event.keyCode == 9) {
+                if ($dropdown.hasClass('open')) {
+                    return false;
+                }
+            }
+        });
+        $(document).on('keydown.nice-select-search', '.nice-select', function () {
+            var $self = $(this);
+            var $text = $self.find('.nice-select-search').val();
+            var $options = $self.find('ul li');
+            if ($text == '')
+                $options.show();
+            else if ($self.hasClass('open')) {
+                $text = $text.toLowerCase();
+                var $matchReg = new RegExp($text);
+                if (0 < $options.length) {
+                    $options.each(function () {
+                        var $this = $(this);
+                        var $optionText = $this.text().toLowerCase();
+                        var $matchCheck = $matchReg.test($optionText);
+                        $matchCheck ? $this.show() : $this.hide();
+                    })
+                } else {
+                    $options.show();
+                }
+            }
+
+        });
+        // Detect CSS pointer-events support, for IE <= 10. From Modernizr.
+        var style = document.createElement('a').style;
+        style.cssText = 'pointer-events:auto';
+        if (style.pointerEvents !== 'auto') {
+            $('html').addClass('no-csspointerevents');
+        }
+
+        return this;
+
+    };
+
+    function LoadEvents() {
+        var urlpath = '@Url.Action("LoadEvents", "Home")';
+        appetizer.actionCall(urlpath, null, 'GET', function (data, result) {
+            if (result) {
+                var html = "<option>All Events</option>";
+                for (var i = 0; i < data.Data.length; i++) {
+                    html += '<option>' + data.Data[i].EventName + '</option>';
+                }
+                $("#ddlEvents").empty();
+                $("#ddlEvents").append(html);
+                $('#ddlEvents').niceSelect();
+            }
+            else {
+                console.log("Event load error message: " + data.Data);
+            }
+        });
+    }
+
+    function LoadCategory() {
+        var urlpath = '@Url.Action("LoadCategory", "Home")';
+        appetizer.actionCall(urlpath, null, 'GET', function (data, result) {
+            if (result) {
+                var html = '<li><a style="cursor:pointer" onClick="leftCategoryClicked(this)" class="lftcategory">All Categories</a></li>';
+                var htmlddlCategory = "<option>All Categories</option>";
+                for (var i = 0; i < data.Data.length; i++) {
+                    html += '<li><a style="cursor:pointer" onClick="leftCategoryClicked(this)" class="lftcategory">' + data.Data[i].CategoryName + '</a></li>';
+                    htmlddlCategory += '<option>' + data.Data[i].CategoryName + '</option>';
+                }
+                $("#category").empty();
+                $("#category").append(html);
+                $("#ddlCategory").empty();
+                $("#ddlCategory").append(htmlddlCategory);
+                $('#ddlCategory').niceSelect();
+            }
+            else {
+                console.log("Category load error message: " + data.Data);
+            }
+        });
+    }
+
+    function leftCategoryClicked(e) {
+        $sectedCategory = e.innerHTML;
+        $flag = 1;
+        if ($sectedCategory == "All Categories") {
+            LoadImageByCategory(1, '');
+            $sectedCategory = '';
+            $flag = 0;
+        }
+        else {
+            LoadImageByCategory(1, $sectedCategory);
+        }
+    };
+
+
+
+
+    function LoadImage(pageNo, fileName, events, category, tag) {
+        $flag = 0;
+        var urlpath = '@Url.Action("LoadApprovedImages", "Home")';
+        var params = { "PageNo": pageNo, "PageSize": 15, "Category": category, "FileName": fileName, "TagName": tag, "EventName": events }
+        appetizer.actionCall(urlpath, params, 'GET', function (data, result) {
+            if (result) {
+                var html = "";
+                for (var i = 0; i < data.Data.length; i++) {
+                    html += '<div class="col-md-4" style="padding-bottom:20px;">' +
+                                        '<div class="fg-item fg-positioned fg-loaded left-turn" style="width: 258px; height: 215px;position:absolute">' +
+                                         '   <figure class="fg-item-inner">' +
+                                         '  </figure>' +
+                                        '</div>' +
+                                        '<div class="fg-item fg-positioned fg-loaded right-turn" style="width: 258px; height: 215px;position:absolute">' +
+                                            '<figure class="fg-item-inner">' +
+                                            '</figure>' +
+                                        '</div>' +
+                                        '<div class="fg-item fg-positioned fg-loaded" style="width: 258px; height: 215px;">' +
+                                            '<figure class="fg-item-inner">' +
+                                                '<a href="' + data.Data[i].ImageUrl + '" data-caption-title="' + data.Data[i].ImageTitle + ' " data-caption-desc="' + data.Data[i].ImageDetails + '" data-attachment-id="179" class="foogallery-thumb  fg-thumb fbx-link"><img title="' + data.Data[i].ImageTitle + '" class="bf-img fg-image" height="200" width="250" data-src-fg="' + data.Data[i].ImageUrl + '" data-srcset-fg="' + data.Data[i].ImageUrl + '500w" src="' + data.Data[i].ImageUrl + '" style=""></a>' +
+                                               ' <figcaption class="fg-caption" style="max-width: 250px;">' +
+                                                    '<div class="fg-caption-inner">' +
+                                                        '<div class="fg-caption-title">' + data.Data[i].ImageTitle + ' <br /><span class="photo-credit">PC: ' + data.Data[i].PC + ' </span></div>' +
+                                                        //'<div class="fg-caption-desc">' + data.Data[i].ImageDetails + '</div>' +
+                                                    '</div>' +
+                                                '</figcaption>' +
+                                            '</figure>' +
+                                            '<div class="fg-loader"></div>' +
+                                        '</div>' +
+                                        '<span class="pull-right download" style="position:absolute;margin-top:-20px;margin-left:-15px;margin-left:238px;cursor:pointer;" link="' + data.Data[i].ImageUrl + '" onClick="downloadImage(\'' + data.Data[i].ImageId + '\')"><a id="downloadImg' + i + '" href="' + data.Data[i].ImageUrl + '" download></a><i class="fa fa-download" style="color:#828282 !important" aria-hidden="true"></i></span>' +
+                                        //'<a class="pull-right download" style="position:absolute;margin-top:-20px;margin-left:-15px;margin-left:238px;cursor:pointer;" src="' + data.Data[i].ImageUrl + '" download>Download</a>' +
+                                        '</div>';
+                }
+
+                if (data.Data.length == 0) {
+                    html += "<div style='text-align: center;padding-top: 10%;padding-bottom: 70%;font-size: 30px;color: #a96363;'>Oops, Sorry no data found !<div>";
+                }
+                $("#GalleryDiv").empty();
+                $("#GalleryDiv").append(html);
+                initFancyBox();
+                totalRecord = data.TotalRecord;
+                setPaggination(pageNo);
+            }
+            else {
+                console.log("Image load error message: " + data.Data);
+            }
+        });
+    }
+
+    function downloadImage(e) {
+        var urlpath = '/Home/DownloadImage?Id=' + e;
+        window.open(urlpath, "_blank");
+    }
+
+
+    function LoadImageByCategory(pageNo, category) {
+        var urlpath = '@Url.Action("LoadApprovedImagesByCategory", "Home")';
+        var params = { "PageNo": pageNo, "PageSize": 15, "Category": category }
+        appetizer.actionCall(urlpath, params, 'GET', function (data, result) {
+            if (result) {
+                var html = "";
+                for (var i = 0; i < data.Data.length; i++) {                  
+
+                    html += '<div class="col-md-4" style="padding-bottom:20px;">' +
+                                                        '<div class="fg-item fg-positioned fg-loaded left-turn" style="width: 258px; height: 215px;position:absolute">' +
+                                                         '   <figure class="fg-item-inner">' +
+                                                         '  </figure>' +
+                                                        '</div>' +
+                                                        '<div class="fg-item fg-positioned fg-loaded right-turn" style="width: 258px; height: 215px;position:absolute">' +
+                                                            '<figure class="fg-item-inner">' +
+                                                            '</figure>' +
+                                                        '</div>' +
+                                                        '<div class="fg-item fg-positioned fg-loaded" style="width: 258px; height: 215px;">' +
+                                                            '<figure class="fg-item-inner">' +
+                                                                '<a href="' + data.Data[i].ImageUrl + '" data-caption-title="' + data.Data[i].ImageTitle + ' " data-caption-desc="' + data.Data[i].ImageDetails + '" data-attachment-id="179" class="foogallery-thumb  fg-thumb fbx-link"><img title="' + data.Data[i].ImageTitle + '" class="bf-img fg-image" height="200" width="250" data-src-fg="' + data.Data[i].ImageUrl + '" data-srcset-fg="' + data.Data[i].ImageUrl + '500w" src="' + data.Data[i].ImageUrl + '" style=""></a>' +
+                                                               ' <figcaption class="fg-caption" style="max-width: 250px;">' +
+                                                                    '<div class="fg-caption-inner">' +
+                                                                        '<div class="fg-caption-title">' + data.Data[i].ImageTitle + ' <br /><span class="photo-credit">PC: ' + data.Data[i].PC + ' </span></div>' +
+                                                                        //'<div class="fg-caption-desc">' + data.Data[i].ImageDetails + '</div>' +
+                                                                    '</div>' +
+                                                                '</figcaption>' +
+                                                            '</figure>' +
+                                                            '<div class="fg-loader"></div>' +
+                                                        '</div>' +
+                                                        '<span class="pull-right download" style="position:absolute;margin-top:-20px;margin-left:-15px;margin-left:238px;cursor:pointer;" link="' + data.Data[i].ImageUrl + '" onClick="downloadImage(\'' + data.Data[i].ImageId + '\')"><a id="downloadImg' + i + '" href="' + data.Data[i].ImageUrl + '" download></a><i class="fa fa-download" style="color:#828282 !important" aria-hidden="true"></i></span>' +
+                                                        //'<a class="pull-right download" style="position:absolute;margin-top:-20px;margin-left:-15px;margin-left:238px;cursor:pointer;" src="' + data.Data[i].ImageUrl + '" download>Download</a>' +
+                                                        '</div>';
+                }
+                if (data.Data.length == 0) {
+                    html += "<div style='text-align: center;padding-top: 10%;padding-bottom: 70%;font-size: 30px;color: #a96363;'>Oops, Sorry no data found !<div>";
+                }
+                $("#GalleryDiv").empty();
+                $("#GalleryDiv").append(html);
+                initFancyBox();
+                totalRecord = data.TotalRecord;
+                setPaggination(pageNo);
+            }
+            else {
+                console.log("Category wise image load error message: " + data.Data);
+            }
+        });
+    }
+
+
+    function LoadImageByTag(pageNo, tag) {
+        var urlpath = '@Url.Action("LoadApprovedImagesByTag", "Home")';
+        var params = { "PageNo": pageNo, "PageSize": 15, "TagName": tag }
+        appetizer.actionCall(urlpath, params, 'GET', function (data, result) {
+            if (result) {
+                var html = "";
+                for (var i = 0; i < data.Data.length; i++) {
+                   
+                    html += '<div class="col-md-4" style="padding-bottom:20px;">' +
+                                                        '<div class="fg-item fg-positioned fg-loaded left-turn" style="width: 258px; height: 215px;position:absolute">' +
+                                                         '   <figure class="fg-item-inner">' +
+                                                         '  </figure>' +
+                                                        '</div>' +
+                                                        '<div class="fg-item fg-positioned fg-loaded right-turn" style="width: 258px; height: 215px;position:absolute">' +
+                                                            '<figure class="fg-item-inner">' +
+                                                            '</figure>' +
+                                                        '</div>' +
+                                                        '<div class="fg-item fg-positioned fg-loaded" style="width: 258px; height: 215px;">' +
+                                                            '<figure class="fg-item-inner">' +
+                                                                '<a href="' + data.Data[i].ImageUrl + '" data-caption-title="' + data.Data[i].ImageTitle + ' " data-caption-desc="' + data.Data[i].ImageDetails + '" data-attachment-id="179" class="foogallery-thumb  fg-thumb fbx-link"><img title="' + data.Data[i].ImageTitle + '" class="bf-img fg-image" height="200" width="250" data-src-fg="' + data.Data[i].ImageUrl + '" data-srcset-fg="' + data.Data[i].ImageUrl + '500w" src="' + data.Data[i].ImageUrl + '" style=""></a>' +
+                                                               ' <figcaption class="fg-caption" style="max-width: 250px;">' +
+                                                                    '<div class="fg-caption-inner">' +
+                                                                        '<div class="fg-caption-title">' + data.Data[i].ImageTitle + ' <br /><span class="photo-credit">PC: ' + data.Data[i].PC + ' </span></div>' +
+                                                                        //'<div class="fg-caption-desc">' + data.Data[i].ImageDetails + '</div>' +
+                                                                    '</div>' +
+                                                                '</figcaption>' +
+                                                            '</figure>' +
+                                                            '<div class="fg-loader"></div>' +
+                                                        '</div>' +
+                                                        '<span class="pull-right download" style="position:absolute;margin-top:-20px;margin-left:-15px;margin-left:238px;cursor:pointer;" link="' + data.Data[i].ImageUrl + '" onClick="downloadImage(\'' + data.Data[i].ImageId + '\')"><a id="downloadImg' + i + '" href="' + data.Data[i].ImageUrl + '" download></a><i class="fa fa-download" style="color:#828282 !important" aria-hidden="true"></i></span>' +
+                                                        //'<a class="pull-right download" style="position:absolute;margin-top:-20px;margin-left:-15px;margin-left:238px;cursor:pointer;" src="' + data.Data[i].ImageUrl + '" download>Download</a>' +
+                                                        '</div>';
+                }
+                if (data.Data.length == 0) {
+                    html += "<div style='text-align: center;padding-top: 10%;padding-bottom: 70%;font-size: 30px;color: #a96363;'>Oops, Sorry no data found !<div>";
+                }
+                $("#GalleryDiv").empty();
+                $("#GalleryDiv").append(html);
+                initFancyBox();
+                totalRecord = data.TotalRecord;
+                setPaggination(pageNo);
+            }
+            else {
+                console.log("Category wise image load error message: " + data.Data);
+            }
+        });
+    }
+
+    function LoadRecentPhotos() {
+        var urlpath = '@Url.Action("LoadLatestImages", "Home")';
+        appetizer.actionCall(urlpath, null, 'GET', function (data, result) {
+            if (result) {
+                var latestPhotoItems = $('.owl-item:not(.cloned)');
+                if (data.Data.length > 0) {
+                    for (var i = 0; i < data.Data.length; i++) {
+                        var html = '';
+                        html += '<div class="item">' +
+                                    '<a href="' + data.Data[i].ImageUrl + '" class="foobox"><img class="foobox" src="' + data.Data[i].ImageUrl + '" alt=""></a>' +
+                                                '<h4 class="title">' + data.Data[i].ImageTitle + '</h4>' +
+                                                '<p>' + data.Data[i].ImageDetails + '</p>' +
+                                            '</div>';
+                        latestPhotoItems[i].innerHTML = html;
+                    }
+
+                    initFancyBox();
+                }
+
+
+            }
+            else {
+                console.log("Latest photos load error message: " + data.Data);
+            }
+
+        });
+    }
+
+    function LoadTags() {
+        var urlpath = '@Url.Action("LoadPopularTags", "Home")';
+        appetizer.actionCall(urlpath, null, 'GET', function (data, result) {
+            if (result) {
+                var html = '';
+                for (var i = 0; i < data.Data.length; i++) {
+                    html += '<a style="cursor:pointer" onClick="leftTagClicked(this)" class="lftTag">' + data.Data[i].TagName + '</a>';
+                }
+
+                $("#popularTags").empty();
+                $("#popularTags").append(html);
+            }
+            else {
+                console.log("Latest photos load error message: " + data.Data);
+            }
+        });
+    }
+
+
+    function leftTagClicked(e) {
+        $sectedTag = e.innerHTML;
+        $flag = 2;
+        //console.log($sectedTag);
+        LoadImageByTag(1, $sectedTag);
+    };
+
+</script>

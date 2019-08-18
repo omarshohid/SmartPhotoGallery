@@ -1,0 +1,557 @@
+﻿
+@{
+    ViewBag.Title = "Approve";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style>
+    .scard-item {
+        position: relative !important;
+        top: inherit !important;
+        left: inherit !important;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-bottom: 10px;
+    }
+
+    .swrapper {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        box-shadow: 0 0.1rem 1rem rgba(0,0,0,.1);
+        transition: .3s box-shadow ease, .3s transform ease;
+        border-radius: .5rem;
+        background-color: #fff;
+        position: relative;
+        transform: translateY(0);
+        /* padding-bottom: 5rem; */
+    }
+
+    .simage {
+        width: 15%;
+        height: 100%;
+        position: absolute;
+        background-color: transparent;
+        border-top-left-radius: .6rem;
+        border-top-right-radius: .6rem;
+    }
+
+        .simage .background-image {
+            width: 16rem;
+        }
+
+    .image-wrapper {
+        border: .6rem solid #fff;
+        border-radius: .9rem;
+        z-index: 1 !important;
+    }
+
+    .image-wrapper {
+        transition: none;
+        display: block;
+        position: relative;
+        z-index: 0;
+    }
+
+    .background-image {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50%;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+    }
+
+    /*.swrapper:hover {
+        box-shadow: 0 0.4rem 3.3rem rgba(0,0,0,.2);
+        transform: translateY(-.2rem);
+    }*/
+
+    .scard-item .meta {
+        position: absolute;
+        padding: 1rem 1rem 0 0;
+        right: 0;
+        width: auto;
+        font-size: 1.1rem;
+        background-color: transparent;
+        text-align: right;
+        top: 0;
+        z-index: 1;
+    }
+
+    .round {
+        position: relative;
+        float: right;
+        padding-right: 20px;
+    }
+
+        .round label {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+            height: 28px;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 28px;
+        }
+
+            .round label:after {
+                border: 2px solid #fff;
+                border-top: none;
+                border-right: none;
+                content: "";
+                height: 6px;
+                left: 7px;
+                opacity: 0;
+                position: absolute;
+                top: 8px;
+                transform: rotate(-45deg);
+                width: 12px;
+            }
+
+        .round input[type="checkbox"] {
+            visibility: hidden;
+        }
+
+            .round input[type="checkbox"]:checked + label {
+                background-color: #FC9928;
+                border-color: #FC9928;
+                /*border-color: #66bb6a;*/
+            }
+
+                .round input[type="checkbox"]:checked + label:after {
+                    opacity: 1;
+                }
+
+    .details {
+        width: 85%;
+        float: right;
+    }
+
+    .fbx-show.fbx-social-share .fbx-social {
+        visibility: hidden !important;
+        opacity: 1;
+    }
+
+    .form-group label {
+        font-size: 13px;
+        font-family: georgia;
+        text-transform: capitalize;
+    }
+
+    .form-group {
+        margin-bottom: 0px;
+    }
+
+    .k-textbox:hover, .k-tiles li.k-state-hover {
+        border-color: #fc9928;
+    }
+
+    .list-dashed {
+        border-bottom: 1px dashed #d3d3d3 !important;
+        margin-bottom: 7px;
+        padding-bottom: 7px;
+    }
+
+    .simple-pagination {
+        display: inline-block;
+        overflow: hidden;
+        padding: 0 5px 5px 0;
+        margin-bottom: 15px;
+    }
+</style>
+<script src="~/Scripts/Format.js"></script>
+<style>
+    .scard-item {
+        position: relative !important;
+        top: inherit !important;
+        left: inherit !important;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-bottom: 10px;
+    }
+
+    .swrapper {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        box-shadow: 0 0.1rem 1rem rgba(0,0,0,.1);
+        transition: .3s box-shadow ease, .3s transform ease;
+        border-radius: .5rem;
+        background-color: #fff;
+        position: relative;
+        transform: translateY(0);
+        /* padding-bottom: 5rem; */
+    }
+
+    .simage {
+        width: 15%;
+        height: 100%;
+        position: absolute;
+        background-color: transparent;
+        border-top-left-radius: .6rem;
+        border-top-right-radius: .6rem;
+    }
+
+        .simage .background-image {
+            width: 16rem;
+        }
+
+    .image-wrapper {
+        border: .6rem solid #fff;
+        border-radius: .9rem;
+        z-index: 1 !important;
+    }
+
+    .image-wrapper {
+        transition: none;
+        display: block;
+        position: relative;
+        z-index: 0;
+    }
+
+    .background-image {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50%;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+    }
+
+    /*.swrapper:hover {
+        box-shadow: 0 0.4rem 3.3rem rgba(0,0,0,.2);
+        transform: translateY(-.2rem);
+    }*/
+
+    .scard-item .meta {
+        position: absolute;
+        padding: 1rem 1rem 0 0;
+        right: 0;
+        width: auto;
+        font-size: 1.1rem;
+        background-color: transparent;
+        text-align: right;
+        top: 0;
+        z-index: 1;
+    }
+
+    .round {
+        position: relative;
+        float: right;
+        padding-right: 20px;
+    }
+
+        .round label {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+            height: 28px;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 28px;
+        }
+
+            .round label:after {
+                border: 2px solid #fff;
+                border-top: none;
+                border-right: none;
+                content: "";
+                height: 6px;
+                left: 7px;
+                opacity: 0;
+                position: absolute;
+                top: 8px;
+                transform: rotate(-45deg);
+                width: 12px;
+            }
+
+        .round input[type="checkbox"] {
+            visibility: hidden;
+        }
+
+            .round input[type="checkbox"]:checked + label {
+                background-color: #FC9928;
+                border-color: #FC9928;
+                /*border-color: #66bb6a;*/
+            }
+
+                .round input[type="checkbox"]:checked + label:after {
+                    opacity: 1;
+                }
+
+    .details {
+        width: 85%;
+        float: right;
+    }
+
+    .fbx-show.fbx-social-share .fbx-social {
+        visibility: hidden !important;
+        opacity: 1;
+    }
+
+    .form-group label {
+        font-size: 13px;
+        font-family: georgia;
+        text-transform: capitalize;
+    }
+
+    .form-group {
+        margin-bottom: 0px;
+    }
+
+    .k-textbox:hover, .k-tiles li.k-state-hover {
+        border-color: #fc9928;
+    }
+
+    .list-dashed {
+        border-bottom: 1px dashed #d3d3d3 !important;
+        margin-bottom: 7px;
+        padding-bottom: 7px;
+    }
+
+    .simple-pagination {
+        display: inline-block;
+        overflow: hidden;
+        padding: 0 5px 5px 0;
+        margin-bottom: 15px;
+    }
+</style>
+<script>
+    function parseDate(date) {
+        var nowDate = new Date(parseInt(date.substr(6)));
+        var result = "";
+        result += nowDate.format("dd-mmm-yyyy");
+        return result;
+    }
+</script>
+<div class="row" style="border-left: 5px solid #fc9928;background-color: #fff;box-shadow: 0 0.1rem 1rem rgba(0,0,0,.1);transition: .3s box-shadow ease, .3s transform ease;margin-top:20px;margin-bottom:15px;">
+    <div class="col-md-5"><h2 style="margin-top:10px;padding-left:10px;font-family: georgia;">Approved Image List</h2></div>
+    <div class="col-md-3 float-right">
+        <div class="round float-right" style="margin-top:13px;padding-right:35px">
+            <input type="checkbox" id="check_all" />
+            <label for="check_all"></label>
+        </div>
+        <span style="float: right;padding-top: 16px;font-family:georgia">Select all &nbsp;</span>
+    </div>
+</div>
+<div class="row list-dashed">
+    <div class="col-md-12" id="ImagesList">
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="pagination-holder" style="text-align:center">
+            <div id="light-pagination" class="pagination light-theme simple-pagination">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1 pull-right">
+        <input type="button" id="btnApprove" class="btn btn-success pull-right" style="margin-right:13px;padding: 5px 14px;line-height: 24px;border-radius: 27px;" value="Update" />
+    </div>
+    <div class="col-md-1 pull-right">
+        <input type="button" id="btnDelete" class="btn btn-danger pull-right" style="margin-right:13px;padding: 5px 14px;line-height: 24px;border-radius: 27px;" value="Delete" />
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        initFancyBox();
+        //setPaggination(1);
+        LoadImage(1);
+    });
+
+    var totalRecord = 50;
+    $PageNo = 0;
+
+    function setPaggination(pageNo) {
+        $PageNo = pageNo;
+        $('#light-pagination').pagination({
+            items: totalRecord / 12,
+            cssStyle: 'light-theme',
+            currentPage: pageNo,
+            onPageClick: function (pageNumber, e) {
+                LoadImage(pageNumber);
+            }
+        });
+    }
+
+    function LoadImage(pageNo) {
+
+        var urlpath = '@Url.Action("LoadApprovedImages", "Home")';
+        var params = { "PageNo": pageNo, "PageSize": 12, "Category": '', "FileName": '', "TagName": '' }
+        appetizer.actionCall(urlpath, params, 'GET', function (data, result) {
+            if (result) {
+                var html = "";
+                for (var i = 0; i < data.Data.length; i++) {
+                    html += '<div class="scard-item">'+
+                '<div class="swrapper">'+
+                    '    <div class="simage">'+
+                    '    <a href="' + data.Data[i].ImageUrl + '" class="image-wrapper background-image foobox" style="">' +
+                    '        <img src="' + data.Data[i].ImageUrl + '" style="width:auto;height:140px;" alt="">' +
+                    '    </a>'+
+                    '</div>'+
+                    '<div class="details" style="height:150px;">'+
+                    '    <div class="meta">'+
+                    '         <figure style="font-size: 13px;font-family: roboto;">' +
+                    '            <i class="fa fa-calendar-o"></i> ' + parseDate(data.Data[i].UploadDate) +
+                    '        </figure>' +
+                    '        <figure style="font-family: roboto;">' +
+                    '            <a style="text-decoration:none;cursor:pointer">' +
+                    '                <i class="fa fa-user"> </i> ' + data.Data[i].UploadedBy +
+                    '            </a>' +
+                    '        </figure>' +
+                    '    </div>'+
+                    '    <div class="row">'+
+                    '        <div class="col-md-12" style="min-height:118px;">'+
+                    '            <div class="form-group row">'+
+                    '                <label for="name_' + data.Data[i].ImageId + '" class="col-sm-1 col-form-label" style="padding-top:15px;">Caption:</label>' +
+                    '                <div class="col-md-6" style="padding-top:10px">'+
+                    '                    <input type="text" id="name_' + data.Data[i].ImageId + '" class="k-textbox" style="width:100%" value="' + data.Data[i].ImageTitle + '" />' +
+                    '                </div>'+
+                    '            </div>'+
+                    '            <div class="form-group row">'+
+                    '                <label for="tag_' + data.Data[i].ImageId + '" class="col-sm-1 col-form-label" style="padding-top:10px;">Tags:</label>' +
+                    '                <div class="col-md-9" style="padding-top:5px">'+
+                    '                    <input type="text" id="tag_' + data.Data[i].ImageId + '" class="k-textbox" style="width:100%" value="' + data.Data[i].ImageTag + '" />' +
+                    '                </div>'+
+                    '            </div>'+
+                    '            <div class="form-group row">'+
+                    '                <label for="details_'+i+'" class="col-sm-1 col-form-label" style="padding-top:10px;">Details:</label>'+
+                    '                <div class="col-md-9" style="padding-top:5px">'+
+                    '                    <textarea type="text" id="details_' + data.Data[i].ImageId + '" rows="10" class="k-textbox" style="width:100%; height:60px">' + data.Data[i].ImageDetails + '</textarea>' +
+                    '                </div>'+
+                    '                <div class="col-md-1 float-right" style="margin-top:42px">'+
+                    '                    <div class="round">'+
+                    '                        <input type="checkbox" id="checkbox_' + data.Data[i].ImageId + '" />' +
+                    '                        <label for="checkbox_' + data.Data[i].ImageId + '"></label>' +
+                    '                    </div>'+
+                    '                </div>'+
+                    '            </div>'+
+                    '        </div>'+
+                    '    </div>'+
+                    '</div>'+
+                    '</div>'+
+                    '</div>';
+                }
+                $("#ImagesList").empty();
+                $("#ImagesList").append(html);
+                initFancyBox();
+                totalRecord = data.TotalRecord;
+                setPaggination(pageNo);
+                $('#check_all').prop('checked', false);
+                init();
+
+                for (var i = 0; i < data.Data.length; i++) {
+                    setAutoCompleteTag('tag_' + data.Data[i].ImageId);
+                }
+            }
+            else {
+
+            }
+        });
+    }
+
+
+    $('#check_all').change(function () {
+        if ($(this).prop('checked')) {
+            //alert("Checked Box Selected");
+            $('div#ImagesList input[type=checkbox]').each(function () {
+                $(this).prop('checked', true);
+            });
+        } else {
+            //alert("Checked Box deselect");
+            $('div#ImagesList input[type=checkbox]').each(function () {
+                $(this).prop('checked', false);
+            });
+        }
+    });
+
+    function init() {
+        $('div#ImagesList input[type=checkbox]').change(function () {
+            var flag = 0;
+            $('div#ImagesList input[type=checkbox]').each(function () {
+                if ($(this).is(":checked")) {
+                }
+                else {
+                    flag = 1;
+                }
+            });
+            if (flag == 0) {
+                $('#check_all').prop('checked', true);
+            }
+            else {
+                $('#check_all').prop('checked', false);
+            }
+        });
+
+        $('#btnApprove').click(function () {
+            $data = [];
+            $('div#ImagesList input[type=checkbox]').each(function () {
+                var id = $(this).attr('id').replace("checkbox_", "");;
+                if ($(this).is(":checked")) {
+                    $data.push({ "ImageId": id, "ImageTitle": $('#name_' + id).val(), "ImageDetails": $('#details_' + id).val(), "ImageTag": $('#tag_' + id).val() })
+                }
+
+            });
+            //console.log($data);
+            if ($data.length > 0) {
+                var urlpath = '@Url.Action("ApproveImage", "Home")';
+                var params = { "data": $data }
+                appetizer.actionCall(urlpath, params, 'POST', function (data, result) {
+                    if (result) {
+                        LoadImage(1);
+                        appetizer.ajaxLoder.hidePleaseWait();
+                        appetizer.message.showInfo('#showMsg', "Data Updated Successfylly", 10000);
+                    }
+                    else {
+                        appetizer.ajaxLoder.hidePleaseWait();
+                        appetizer.message.showError('#showErrorMsg', data.Data, 10000);
+                    }
+                });
+            }
+            else {
+                appetizer.message.showWarning('#showErrorMsg', "Please select item first!", 10000);
+            }
+
+        });
+
+
+        $('#btnDelete').click(function () {
+            $data = [];
+            $('div#ImagesList input[type=checkbox]').each(function () {
+                var id = $(this).attr('id').replace("checkbox_", "");;
+                if ($(this).is(":checked")) {
+                    $data.push({ "ImageId": id, "ImageTitle": $('#name_' + id).val(), "ImageDetails": $('#details_' + id).val(), "ImageTag": presizeTag('tag_' + id) })
+                }
+            });
+            if ($data.length > 0) {
+                appetizer.message.showConfirm("Once deleted, you will not be able to recover this record.", function (data) {
+                    if (data) {
+                        var urlpath = '@Url.Action("DeleteImage", "Home")';
+                        var params = { "data": $data }
+                        appetizer.actionCall(urlpath, params, 'POST', function (data, result) {
+                            if (result) {
+                                LoadImage(1);
+                                appetizer.ajaxLoder.hidePleaseWait();
+                                appetizer.message.showInfo('#showMsg', data.Data, 10000);
+                            }
+                            else {
+                                appetizer.ajaxLoder.hidePleaseWait();
+                                appetizer.message.showError('#showErrorMsg', data.Data, 10000);
+                            }
+                        });
+                    }
+                });
+            }
+            else {
+                appetizer.message.showWarning('#showErrorMsg', "Please select item first!", 10000);
+            }
+        });
+    }
+</script>
+
+
+

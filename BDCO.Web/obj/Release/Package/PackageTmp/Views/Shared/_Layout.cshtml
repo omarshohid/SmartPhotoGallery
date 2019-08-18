@@ -1,0 +1,400 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="Photo Gallery" />
+    <meta name="keywords" content="photo,gallery,PhotoGallery" />
+    <meta name="author" content="Shohid" />
+    <meta charset="UTF-8">
+    <!-- Page Title -->
+    <title>@ViewBag.Title - Photo Gallery</title>
+
+    <!-- Favicon and Touch Icons -->
+
+    <link href="~/images/favicon.png" rel="shortcut icon" type="image/png" />
+    <link href="~/images/apple-touch-icon.png" rel="apple-touch-icon" />
+    <link href="~/images/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72" />
+    <link href="~/images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114" />
+    <link href="~/images/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144" />
+
+    <!-- Stylesheet -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/css/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="~/css/animate.css" rel="stylesheet" type="text/css">
+    <link href="~/css/css-plugin-collections.css" rel="stylesheet" />
+    <!-- CSS | menuzord megamenu skins -->
+    <link href="~/css/menuzord-megamenu.css" rel="stylesheet" />
+    <link id="menuzord-menu-skins" href="~/css/menuzord-skins/menuzord-boxed.css" rel="stylesheet" />
+    <!-- CSS | Main style file -->
+    <link href="~/css/style-main.css" rel="stylesheet" type="text/css">
+    <!-- CSS | Preloader Styles -->
+    <link href="~/css/preloader.css" rel="stylesheet" type="text/css">
+    <!-- CSS | Custom Margin Padding Collection -->
+    <link href="~/css/custom-bootstrap-margin-padding.css" rel="stylesheet" type="text/css">
+    <!-- CSS | Responsive media queries -->
+    <link href="~/css/responsive.css" rel="stylesheet" type="text/css">
+    <!-- CSS | Style css. This is the file where you can place your own custom css code. Just uncomment it and use it. -->
+    <!-- <link href="css/style.css" rel="stylesheet" type="text/css"> -->
+    <!-- CSS | Theme Color -->
+    @*<link href="~/css/colors/theme-skin-color-set1.css" rel="stylesheet" type="text/css">*@
+    @*<link href="~/css/colors/theme-skin-color-set2.css" rel="stylesheet" type="text/css">*@
+    <link href="~/css/colors/theme-skin-color-set3.css" rel="stylesheet" type="text/css">
+    @*<link href="~/css/colors/theme-skin-color-set4.css" rel="stylesheet" type="text/css">*@
+    @*<link href="~/css/colors/theme-skin-color-set5.css" rel="stylesheet" type="text/css">*@
+    @*<link href="~/css/colors/theme-skin-color-set6.css" rel="stylesheet" type="text/css">*@
+    <!-- For gallery -->
+    <link rel="stylesheet" href="~/css/gallery.min.css" />
+    <link rel="stylesheet" href="~/css/foobox.min.css" />
+    <!-- For paggination -->
+    <link href="~/Content/simplePagination.css" rel="stylesheet" />
+
+    <!-- external javascripts -->
+    <script src="~/js/jquery-2.2.4.min.js"></script>
+    <script src="~/js/jquery-ui.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <!-- JS | jquery plugin collection for this theme -->
+    <script src="~/js/jquery-plugin-collection.js"></script>
+
+    <!-- For gallery -->
+    <script type='text/javascript' src='~/js/foobox.min.js'></script>
+    <!-- For paggination -->
+    <script src="~/Scripts/jquery.simplePagination.js"></script>
+    @*<script type='text/javascript' src='~/js/op-jquery-base-all.min.js'></script>*@
+    <style>
+        .menuzord-menu ul.dropdown, .menuzord-menu ul.dropdown li ul.dropdown {
+            min-width: 130px;
+        }
+
+        .styled-icons.icon-bordered a {
+            border: 1px solid #fff;
+        }
+
+        .styled-icons.icon-circled a {
+            /*border-radius: 50%;*/
+            border-radius: 0px;
+        }
+
+        .menuzord-menu > li {
+            padding: 10px 0px 5px 0px !important;
+        }
+
+        .menuzord-brand {
+            margin: 5px 30px 5px 0 !important;
+            float: left;
+            color: #666;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.3;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="has-fixed-footer">
+
+    <div id="wrapper" class="clearfix">
+        <!-- preloader -->
+        <div id="preloader">
+            <div id="spinner">
+                <img alt="" src="~/images/preloaders/4.gif">
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header id="header" class="header">
+            <div class="header-top bg-theme-colored2 sm-text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="widget text-white" style="background-color:#FFF;padding-left:10px;padding-right:10px;">
+                                <a href="https://bangladesh.savethechildren.net/" target="_blank"><img src="~/Images/SCI_logo.png" /></a>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="widget text-white">
+                                <ul class="list-inline xs-text-center text-white">
+                                    <li class="m-0 pl-10 pr-10"> <a href="#" class="text-white"><i class="fa fa-phone text-white"></i> +88-09612555333</a> </li>
+                                    <li class="m-0 pl-10 pr-10">
+                                        <a href="mailto:info.bangladesh@savethechildren.org" target="_top" class="text-white"><i class="fa fa-envelope-o text-white mr-5"></i> info.bangladesh@savethechildren.org</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <div class="col-md-1 pull-right">
+                                <ul style="margin-top: 7px !important;" class="list-inline sm-pull-none sm-text-center text-right text-white mb-sm-20 mt-10">
+                                    <li class="m-0 pl-10"> <a href="~/Account/Login" class="text-white"><i class="fa fa-user-o mr-5 text-white"></i> Login </a> </li>
+                                </ul>
+                            </div>
+                        }
+                        <div class="col-md-4 pr-0 pull-right">
+
+                            <div class="widget">
+                                <ul style="margin-top:3px" class="styled-icons icon-sm pull-right flip sm-pull-none sm-text-center icon-bordered icon-circled clearfix">
+                                    <li><a href="https://en-gb.facebook.com/savethechildreninbangladesh" target="_blank"><i class="fa fa-facebook text-white"></i></a></li>
+                                    <li><a href="https://twitter.com/SCinBD" target="_blank"><i class="fa fa-twitter text-white"></i></a></li>
+                                    <li><a href="https://www.youtube.com/SCinBD" target="_blank"><i class="fa fa-youtube text-white"></i></a></li>
+                                    <li><a href="https://www.instagram.com/savethechildreninbangladesh/" target="_blank"><i class="fa fa-instagram text-white"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/company/save-the-children-in-bangladesh" target="_blank"><i class="fa fa-linkedin text-white"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="header-nav">
+                <div class="header-nav-wrapper navbar-scrolltofixed bg-white">
+                    <div class="container">
+                        <nav id="menuzord-right" class="menuzord default">
+                            <a class="menuzord-brand pull-left flip mt-sm-10 mb-sm-20" href="index-mp-layout1.html"><img src="/images/logo-wide.png" alt=""></a>
+                            <ul class="menuzord-menu" style="float:right">
+                                @*<div class="input-group col-md-7 col-md-offset-4" style="max-height: 400px;padding-top: 5px;">
+                                        <input value="" name="search" placeholder="Search here" class="form-control input-lg font-16" data-height="45px" id="mce-EMAIL-footer" style="height: 45px;" type="email">
+                                        <span class="input-group-btn">
+                                            <button data-height="45px" class="btn btn-theme-colored text-white btn-xs m-0 font-14 bg-theme-colored2" type="submit" style="height: 45px;">Search</button>
+                                        </span>
+                                    </div>*@
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <li>
+                                        <a href="/Home/Index">HOME</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Home/PendingList">PENDING</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Home/ApprovedList">APPROVED</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">@User.Identity.Name.ToUpper()</a>
+                                        <ul class="dropdown">
+                                            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                                            {
+                                                @*@Html.AntiForgeryToken()*@
+                                                <li><a id="logoutlink" href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-power-off fa-fw"></i> Log Out</a></li>
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Start main-content -->
+        <div class="main-content">
+            @RenderBody()
+        </div>
+        <!-- Footer -->
+        <!-- Footer -->
+        <footer id="footer" class="footer" data-bg-color="#212331">
+            <div class="container pt-70 pb-40">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3">
+                        <div class="widget dark">
+                            <img class="mt-5 mb-20" alt="" src="/images/logo-white-footer.png" style="width:150px">
+                            <p>House No. CWN (A) 35, Road No. 43 Gulshan – 2, Dhaka -1212, Bangladesh.</p>
+                            <ul class="list-inline mt-5">
+                                <li class="m-0 pl-10 pr-10"> <i class="fa fa-phone text-theme-colored2 mr-5"></i> <a class="text-gray" href="#">+88-09612555333</a> </li>
+                                <li class="m-0 pl-10 pr-10"> <i class="fa fa-envelope-o text-theme-colored2 mr-5"></i> <a class="text-gray" href="mailto:info.bangladesh@savethechildren.org" target="_top" style="font-size:13px">info.bangladesh@savethechildren.org</a> </li>
+                                <li class="m-0 pl-10 pr-10"> <i class="fa fa-globe text-theme-colored2 mr-5"></i> <a class="text-gray" href="https://bangladesh.savethechildren.net/" target="_blank">bangladesh.savethechildren.net</a> </li>
+                            </ul>
+                            <ul class="styled-icons icon-sm icon-bordered icon-circled clearfix mt-10">
+                                <li><a href="https://en-gb.facebook.com/savethechildreninbangladesh" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://twitter.com/SCinBD" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://www.youtube.com/SCinBD" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                                <li><a href="https://www.instagram.com/savethechildreninbangladesh/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="https://www.linkedin.com/company/save-the-children-in-bangladesh" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="widget dark">
+                            <h4 class="widget-title line-bottom-theme-colored-2">Useful Links</h4>
+                            <ul class="angle-double-right list-border">
+                                <li><a href="#">Home Page</a></li>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Our Mission</a></li>
+                                <li><a href="#">Terms and Conditions</a></li>
+                                <li><a href="#">FAQ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="widget dark">
+                            <h4 class="widget-title line-bottom-theme-colored-2">Top News</h4>
+                            <div class="latest-posts">
+                                <article class="post media-post clearfix pb-0 mb-10">
+                                    <a class="post-thumb" href="#"><img src="https://placehold.it/80x55" alt=""></a>
+                                    <div class="post-right">
+                                        <h5 class="post-title mt-0 mb-5"><a href="#">PHP Learning</a></h5>
+                                        <p class="post-date mb-0 font-12">Mar 08, 2015</p>
+                                    </div>
+                                </article>
+                                <article class="post media-post clearfix pb-0 mb-10">
+                                    <a class="post-thumb" href="#"><img src="https://placehold.it/80x55" alt=""></a>
+                                    <div class="post-right">
+                                        <h5 class="post-title mt-0 mb-5"><a href="#">Web Development</a></h5>
+                                        <p class="post-date mb-0 font-12">Mar 08, 2015</p>
+                                    </div>
+                                </article>
+                                <article class="post media-post clearfix pb-0 mb-10">
+                                    <a class="post-thumb" href="#"><img src="https://placehold.it/80x55" alt=""></a>
+                                    <div class="post-right">
+                                        <h5 class="post-title mt-0 mb-5"><a href="#">Spoken English</a></h5>
+                                        <p class="post-date mb-0 font-12">Mar 08, 2015</p>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="widget dark">
+                            <h4 class="widget-title line-bottom-theme-colored-2">Opening Hours</h4>
+                            <div class="opening-hours">
+                                <ul class="list-border">
+                                    <li class="clearfix">
+                                        <span> Mon - Tues :  </span>
+                                        <div class="value pull-right"> 6.00 am - 10.00 pm </div>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span> Wednes - Thurs :</span>
+                                        <div class="value pull-right"> 8.00 am - 6.00 pm </div>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span> Fri : </span>
+                                        <div class="value pull-right"> 3.00 pm - 8.00 pm </div>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span> Sun : </span>
+                                        <div class="value pull-right bg-theme-colored2 text-white closed"> Closed </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom" data-bg-color="#2b2d3b">
+                <div class="container pt-20 pb-20">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="font-12 text-black-777 m-0 sm-text-center">Copyright &copy;@DateTime.Now.Year <a href="https://bangladesh.savethechildren.net/" target="_blank">Save The Children Bangladesh</a>. All Rights Reserved</p>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <div class="widget no-border m-0">
+                                <ul class="list-inline sm-text-center mt-5 font-12">
+                                    <li>
+                                        <a href="#">FAQ</a>
+                                    </li>
+                                    <li>|</li>
+                                    <li>
+                                        <a href="#">Help Desk</a>
+                                    </li>
+                                    <li>|</li>
+                                    <li>
+                                        <a href="#">Support</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        @*<footer id="footer" class="footer" data-bg-img="/Images/backgrounds/background_1.jpg">
+                <div class="footer-bottom" data-bg-img="/Images/backgrounds/background_1.jpg">
+                    <div class="container pt-20 pb-20">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="font-12 text-black-777 m-0 sm-text-center">Copyright &copy;2018 <a href="https://bangladesh.savethechildren.net/" target="_blank">Save The Children Bangladesh</a>. All Rights Reserved</p>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <div class="widget no-border m-0">
+                                    <ul class="list-inline sm-text-center mt-5 font-12">
+                                        <li>
+                                            <a href="#">Support</a>
+                                        </li>
+                                        <li>|</li>
+                                        <li>
+                                            <a href="#">Help Desk</a>
+                                        </li>
+                                        <li>|</li>
+                                        <li>
+                                            <a href="/Account/Login">Administrator</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>*@
+
+        <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+    </div>
+    <!-- end wrapper -->
+    <!-- Footer Scripts -->
+    <!-- JS | Custom script for all pages -->
+    <script src="~/js/custom.js"></script>
+    <script src="~/Scripts/Appetizer.js"></script>
+    <script src="~/js/download.js"></script>
+    <script>
+        function initFancyBox() {
+            $('.download').removeClass('fbx-link');
+            $('.download').css('z-index', '999999');
+
+
+            (function (FOOBOX, $, undefined) {
+                FOOBOX.o = { wordpress: { enabled: true }, pan: { enabled: true, showOverview: true, position: "fbx-top-right" }, deeplinking: { enabled: true, prefix: "foobox" }, excludes: '.fbx-link,.nofoobox,.nolightbox,a[href*="pinterest.com/pin/create/button/"]', affiliate: { enabled: false }, slideshow: { enabled: true }, social: { "enabled": true, "position": "fbx-above", "excludes": ["iframe", "html"], "nonce": "180f6be063", "networks": ["facebook", "google-plus", "twitter", "pinterest", "linkedin", "buffer", "digg", "tumblr", "reddit"] }, preload: true };
+                FOOBOX.init = function () {
+                    $(".fbx-link").removeClass("fbx-link");
+                    $(".gallery").foobox(FOOBOX.o);
+                    $(".wp-block-gallery").foobox(FOOBOX.o);
+                    $(".foogallery-container.foogallery-lightbox-foobox").foobox(FOOBOX.o);
+                    $(".foogallery-container.foogallery-lightbox-foobox-free").foobox(FOOBOX.o);
+                    $(".foobox, [target=\"foobox\"]").foobox(FOOBOX.o);
+                    $(".wp-caption").foobox(FOOBOX.o);
+                    $(".wp-block-image").foobox(FOOBOX.o);
+                    $("a:has(img[class*=wp-image-])").foobox(FOOBOX.o);
+
+                };
+            }(window.FOOBOX = window.FOOBOX || {}, FooBox.$));
+
+            jQuery(function () {
+
+                jQuery("body").append("<span aria-hidden=\"true\" class=\"foobox_font_preload\" style=\"font-family:'foobox'; color:transparent; position:absolute; top:-9999px; left: -9999px;\">f</span>");
+                FOOBOX.init();
+                jQuery(document).trigger("foobox-after-init");
+                jQuery('body').on('post-load', function () { FOOBOX.init(); });
+
+            });
+
+            if (window.addEventListener) {
+                window.addEventListener("DOMContentLoaded", function () {
+                    var arr = document.querySelectorAll("script[type='text/foobox']");
+                    for (var x = 0; x < arr.length; x++) {
+                        var script = document.createElement("script");
+                        script.type = "text/javascript";
+                        script.innerHTML = arr[x].innerHTML;
+                        arr[x].parentNode.replaceChild(script, arr[x]);
+                    }
+                });
+            } else {
+                console.log("FooBox does not support the current browser.");
+            }
+        }
+
+
+    </script>
+
+</body>
+</html>

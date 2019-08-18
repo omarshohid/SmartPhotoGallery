@@ -1,0 +1,1002 @@
+﻿@model DAL.ViewModel.LandingPageContents
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/jssocials.min.js"></script>
+<link href="~/Content/jssocials-theme-minima.css" rel="stylesheet" />
+<link href="~/Content/jssocials.css" rel="stylesheet" />
+<script src="~/Flicker/custom.js"></script>
+<script src="~/Flicker/FlickrAPI.js"></script>
+<script src="~/Flicker/Flickr.Gallery.js"></script>
+<link href="~/Flicker/gallery.css" rel="stylesheet" />
+<link href="~/youtube/jquerysctipttop.css" rel="stylesheet" />
+<link href="~/youtube/darkscroll.css" rel="stylesheet" />
+@*<link href="~/Flicker/style.css" rel="stylesheet" />*@
+@*<link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>*@
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBg8XDTg3WxuWjHCLuutnxr4jpcaYtCFoA"
+        type="text/javascript"></script>
+<style>
+    .team-thumb {
+        height: 275px !important;
+        margin-bottom: -25px;
+    }
+
+    .white-background-sh {
+        background: rgba(255, 255, 255, 0.6) !important;
+        margin-right: 1px;
+    }
+
+    .prime-color {
+        color: #002F6C !important;
+    }
+
+    a.morelink {
+        text-decoration: none;
+        outline: none;
+    }
+
+    .morecontent span {
+        display: none;
+    }
+
+    .contain {
+        object-fit: contain;
+    }
+
+    .vc_custom_1524672121474 {
+        border-top-width: 1px !important;
+        border-right-width: 1px !important;
+        border-bottom-width: 1px !important;
+        border-left-width: 1px !important;
+        padding-top: 30px !important;
+        padding-right: 30px !important;
+        padding-bottom: 30px !important;
+        padding-left: 30px !important;
+        background-color: #ffffff !important;
+        border-left-color: #fafafa !important;
+        border-left-style: solid !important;
+        border-right-color: #fafafa !important;
+        border-right-style: solid !important;
+        border-top-color: #fafafa !important;
+        border-top-style: solid !important;
+        border-bottom-color: #fafafa !important;
+        border-bottom-style: solid !important;
+    }
+
+    .ellipsis {
+        /*white-space: nowrap;*/
+        overflow-y: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .tp-bullets {
+        top: 80% !important;
+        visibility: hidden !important;
+    }
+
+    .bottom-right {
+        right: 0;
+        bottom: 0;
+        position: absolute;
+    }
+
+    .bg-theme-colored {
+        background-color: #BA0C2F !important;
+    }
+
+    #aboutcontant p {
+        font-size: 14px;
+    }
+
+    .banner_reach_test {
+        background-image: url(../Images/backgrounds/background_1.jpg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+    }
+
+    .owl-carousel .owl-dots {
+        text-align: center;
+        margin-top: 0px;
+    }
+
+    .des .p {
+        font-size: 13px;
+    }
+
+    .parallax {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        background-size: cover;
+        /* background-attachment: fixed; */
+        background-repeat: repeat-y;
+        background-position: top center;
+    }
+</style>
+<!-- Section: home -->
+<section id="home">
+    <div class="container-fluid p-0">
+
+        <!-- START REVOLUTION SLIDER 5.0.7 -->
+        <div id="rev_slider_home_wrapper" class="rev_slider_wrapper" data-alias="news-gallery34" style="margin:0px auto; background-color:#ffffff; padding:0px; margin-top:90px; margin-bottom:0px;">
+            <!-- START REVOLUTION SLIDER 5.0.7 fullwidth mode -->
+            <div id="rev_slider_home" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.0.7">
+                <ul>
+                    <!-- SLIDE 1 -->
+                    <li data-index="rs-1" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="Images/1.jpg" data-rotate="0" data-fstransition="fade" data-saveperformance="off" data-title="Web Show" data-description="">
+                        <!-- MAIN IMAGE -->
+                        @*<img src="http://placehold.it/1920x1280" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>*@
+                        <img src="~/Images/banner_1.jpg" alt="" data-bgposition="center center" data-bgfit="100% 100%" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+
+                    </li>
+
+                    <!-- SLIDE 2 -->
+                    <li data-index="rs-2" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="Images/4.jpg" data-rotate="0" data-fstransition="fade" data-saveperformance="off" data-title="Web Show" data-description="">
+                        <!-- MAIN IMAGE -->
+                        <img src="~/Images/banner_2.jpg" alt="" data-bgposition="center center" data-bgfit="100% 100%" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+
+                    </li>
+
+                    <!-- SLIDE 3 -->
+                    <li data-index="rs-3" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="Images/3.jpg" data-rotate="0" data-fstransition="fade" data-saveperformance="off" data-title="Web Show" data-description="">
+                        <!-- MAIN IMAGE -->
+                        <img src="~/Images/banner_3.jpg" alt="" data-bgposition="center center" data-bgfit="100% 100%" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                    </li>
+
+                    <!-- SLIDE 4 -->
+                    <li data-index="rs-4" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="Images/3.jpg" data-rotate="0" data-fstransition="fade" data-saveperformance="off" data-title="Web Show" data-description="">
+                        <!-- MAIN IMAGE -->
+                        <img src="~/Images/banner_4.jpg" alt="" data-bgposition="center center" data-bgfit="100% 100%" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                    </li>
+
+                    <!-- SLIDE 5 -->
+                    <li data-index="rs-5" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="Images/3.jpg" data-rotate="0" data-fstransition="fade" data-saveperformance="off" data-title="Web Show" data-description="">
+                        <!-- MAIN IMAGE -->
+                        <img src="~/Images/banner_5.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                    </li>
+                                        
+                </ul>
+                <div class="tp-bannertimer tp-bottom" style="height: 5px; background-color: rgba(255, 255, 255, 0.2);"></div>
+            </div>
+        </div>
+
+        <!-- END REVOLUTION SLIDER -->
+        <script type="text/javascript">
+            var tpj = jQuery;
+            var revapi34;
+            tpj(document).ready(function () {
+                if (tpj("#rev_slider_home").revolution == undefined) {
+                    revslider_showDoubleJqueryError("#rev_slider_home");
+                } else {
+                    revapi34 = tpj("#rev_slider_home").show().revolution({
+                        sliderType: "standard",
+                        jsFileLocation: "js/revolution-slider/js/",
+                        sliderLayout: "fullscreen",
+                        dottedOverlay: "none",
+                        delay: 5000,
+                        navigation: {
+                            keyboardNavigation: "on",
+                            keyboard_direction: "horizontal",
+                            mouseScrollNavigation: "off",
+                            onHoverStop: "on",
+                            touch: {
+                                touchenabled: "on",
+                                swipe_threshold: 75,
+                                swipe_min_touches: 1,
+                                swipe_direction: "horizontal",
+                                drag_block_vertical: false
+                            }
+                          ,
+                            arrows: {
+                                style: "zeus",
+                                enable: true,
+                                hide_onmobile: true,
+                                hide_under: 600,
+                                hide_onleave: true,
+                                hide_delay: 200,
+                                hide_delay_mobile: 1200,
+                                tmp: '<div class="tp-title-wrap">    <div class="tp-arr-imgholder"></div> </div>',
+                                left: {
+                                    h_align: "left",
+                                    v_align: "center",
+                                    h_offset: 30,
+                                    v_offset: 0
+                                },
+                                right: {
+                                    h_align: "right",
+                                    v_align: "center",
+                                    h_offset: 30,
+                                    v_offset: 0
+                                }
+                            },
+                            bullets: {
+                                enable: true,
+                                hide_onmobile: true,
+                                hide_under: 600,
+                                style: "metis",
+                                hide_onleave: true,
+                                hide_delay: 200,
+                                hide_delay_mobile: 1200,
+                                direction: "horizontal",
+                                h_align: "center",
+                                v_align: "bottom",
+                                h_offset: 0,
+                                v_offset: 30,
+                                space: 5,
+                                tmp: '<span class="tp-bullet-img-wrap"><span class="tp-bullet-image"></span></span>'
+                            }
+                        },
+                        viewPort: {
+                            enable: true,
+                            outof: "pause",
+                            visible_area: "80%"
+                        },
+                        responsiveLevels: [1240, 1024, 778, 480],
+                        gridwidth: [1240, 1024, 778, 480],
+                        gridheight: [600, 550, 500, 450],
+                        lazyType: "none",
+                        parallax: {
+                            type: "scroll",
+                            origo: "enterpoint",
+                            speed: 400,
+                            levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50],
+                        },
+                        shadow: 0,
+                        spinner: "off",
+                        stopLoop: "off",
+                        stopAfterLoops: -1,
+                        stopAtSlide: -1,
+                        shuffle: "off",
+                        autoHeight: "off",
+                        hideThumbsOnMobile: "off",
+                        hideSliderAtLimit: 0,
+                        hideCaptionAtLimit: 0,
+                        hideAllCaptionAtLilmit: 0,
+                        debugMode: false,
+                        fallbacks: {
+                            simplifyAll: "off",
+                            nextSlideOnWindowFocus: "off",
+                            disableFocusListener: false,
+                        }
+                    });
+                }
+            }); /*ready*/
+        </script>
+        <!-- END REVOLUTION SLIDER -->
+
+    </div>
+</section>
+
+<!-- Section: home-boxes Section-->
+@*<section id="boxes">
+        <div class="container pt-0 pb-0">
+            <div class="section-content">
+                <div class="row equal-height-inner home-boxes" data-margin-top="-100px">
+                    <div class="col-sm-12 col-md-2 pl-0 pl-sm-15 pr-0 pr-sm-15 sm-height-auto mt-sm-0 wow fadeInLeft animation-delay1">
+                        <div class="sm-height-auto white-background-sh">
+                            <div class="features-box-colored text-center p-15 pt-30 pb-20">
+                                <h5 class="text-uppercase font-weight-600 mt-0"><a href="~/Resource/Page?PageId=6" class="text-white prime-color">COMUNITY<br />READING CAMPS</a></h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-2 pl-0 pl-sm-15 pr-0 pr-sm-15 sm-height-auto mt-sm-0 wow fadeInLeft animation-delay2">
+                        <div class="sm-height-auto white-background-sh">
+                            <div class="features-box-colored text-center p-15 pt-30 pb-20">
+                                <h5 class="text-uppercase font-weight-600 mt-0"><a href="~/Resource/Page?PageId=7" class="text-white prime-color">INSTRUCTIONAL<br />ADJUSTMENT TOOLS</a></h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-2 pl-0 pl-sm-15 pr-0 pr-sm-15 sm-height-auto mt-sm-0 wow fadeInLeft animation-delay3">
+                        <div class="sm-height-auto white-background-sh">
+                            <div class="features-box-colored text-center p-15 pt-30 pb-20">
+
+                                <h5 class="text-uppercase font-weight-600 mt-0"><a href="~/Resource/Page?PageId=8" class="text-white prime-color">READING INSTRUCTION<br />AND ASSESMENT</a></h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-2 pl-0 pl-sm-15 pr-0 pr-sm-15 sm-height-auto mt-sm-0 wow fadeInLeft animation-delay4">
+                        <div class="sm-height-auto white-background-sh">
+                            <div class="features-box-colored text-center p-15 pt-30 pb-20">
+                                <h5 class="text-uppercase font-weight-600 mt-0"><a href="~/Resource/Page?PageId=9" class="text-white prime-color">SUPPLYMENTARY<br />READING MATERIALS</a></h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-2 pl-0 pl-sm-15 pr-0 pr-sm-15 sm-height-auto mt-sm-0 wow fadeInLeft animation-delay3">
+                        <div class="sm-height-auto white-background-sh">
+                            <div class="features-box-colored text-center p-15 pt-30 pb-20">
+                                <h5 class="text-uppercase font-weight-600 mt-0"><a href="~/Resource/Page?PageId=10" class="text-white prime-color">PRINCT-RICH<br />MATERIALS</a></h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-2 pl-0 pl-sm-15 pr-0 pr-sm-15 sm-height-auto mt-sm-0 wow fadeInLeft animation-delay4">
+                        <div class="sm-height-auto white-background-sh">
+                            <div class="features-box-colored text-center p-15 pt-30 pb-20">
+                                <h5 class="text-uppercase font-weight-600 mt-0"><a href="~/Resource/Page?PageId=11" class="text-white prime-color">READ ICT<br />IN EDUCATION</a></h5>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>*@
+
+<!-- Section About Activity, Tour, News Section -->
+<section id="About">
+    <div class="container pt-50 pb-0">
+        <div class="section-title">
+            <div class="row">
+                <div class="col-md-8">
+                    <h3 class="text-uppercase font-weight-600 mt-0">THE <span class="text-theme-colored2">ACTIVITY</span></h3>
+                    <div class="double-line-bottom-theme-colored-2"></div>
+                    <div class="row">
+                        <div class="col-md-12" id="aboutcontant" style="max-height:380px; overflow-y:hidden">
+                            @Html.Raw(ViewBag.AboutRead)
+                        </div>
+                    </div>
+                    @*<p class="font-16 mt-20">Lorem ipsum dolor sit amet, consecte turadipie sicing elit. Quas voluptatem maiores eaques Quasvolu ptatem maiores</p>
+                        <ul class="list theme-colored2 angle-double-right">
+                            <li>We achieved most leading universtiy award 2017</li>
+                            <li>We always try to provide our best quality education</li>
+                            <li>Over 2000+ students has completed graduation</li>
+                            <li>Best online course provide university this year</li>
+                        </ul>*@
+                    @*<a href="~/Resource/Page?PageId=1" class="btn btn-colored btn-theme-colored2 text-white btn-lg pl-40 pr-40 mt-10">Read More</a>*@
+                </div>
+                @*<div class="col-md-4">
+                        <h3 class="text-uppercase font-weight-600 mt-0 mt-sm-30">Video <span class="text-theme-colored2">Tour</span></h3>
+                        <div class="double-line-bottom-theme-colored-2"></div>
+                        <div class="box-hover-effect about-video">
+                            <div class="effect-wrapper">
+                                <div class="thumb">
+                                    <img class="img-fullwidth" src="~/Images/Hawa begum.jpg" alt="project">
+                                </div>
+                                <div class="video-button"></div>
+                                <a class="hover-link" data-lightbox-gallery="youtube-video" href="https://www.youtube.com/watch?v=I-anZp5xaFk" title="Youtube Video">Youtube Video</a>
+                            </div>
+                        </div>
+                    </div>*@
+                <div class="col-md-4">
+                    <h3 class="text-uppercase font-weight-600 mt-0 mt-sm-30">LATEST <span class="text-theme-colored2">NEWS</span></h3>
+                    <div class="double-line-bottom-theme-colored-2"></div>
+                    @if (Model.lstNews != null)
+                    {
+                        foreach (var item in Model.lstNews.Take(3))
+                        {
+                            <article>
+                                <div class="event-small media sm-maxwidth400 mt-0 mb-0 pt-0 pb-5">
+                                    <a href="~/Details/NewsDetails?id=@item.ID" target="_blank" style="color: #bb0c30;">
+                                        <div class="event-date text-center" style="padding: 15px 16px 15px 20px; border-radius: 46px;">
+                                            <ul class="text-white">
+                                                <li class="font-18 font-weight-700 border-bottom">@Convert.ToDateTime(item.NewsDate).ToString("MMM dd")</li>
+                                                <li class="font-14 text-center text-uppercase mt-5">@Convert.ToDateTime(item.NewsDate).ToString("yyyy")</li>
+                                            </ul>
+                                        </div>
+                                    </a>
+                                    <div class="event-content ellipsis" style="max-height: 85px; overflow-y: hidden; overflow-x:hidden">
+                                        <h5 class="media-heading font-13 font-weight-600 mb-1" style="max-height: 35px; overflow: hidden;"><a href="~/Details/NewsDetails?id=@item.ID" target="_blank" style="color: #bb0c30;">@item.NewsTitle</a></h5>
+                                        @*<span class="mr-10"><i class="fa fa-clock-o text-theme-colored2"></i> 5.00 pm - 7.30 pm</span>*@
+                                        <span style="font-size:12px;line-height: 1.3; text-align: left;">
+                                            <p style="font-size:12px;">@Html.Raw((System.Text.RegularExpressions.Regex.Replace(HttpUtility.HtmlDecode(item.Description.ToString()).Replace("&nbsp;", " ").Replace("<br />", ""), "<[^>]+>", string.Empty)).Replace("<br />", string.Empty)) </p>
+                                        </span>
+                                        @*<div class="bottom-right" style="display:block">
+                                                <a href="#" target="_blank" style="color:#BA0C2F; font-size:11px">... read more</a>
+                                            </div>*@
+                                        @*<a href="#" target="_blank" class="pull-right" style="color:#BA0C2F; font-size:11px; margin-top:20px; position:absolute;">... read more</a>*@
+                                    </div>
+                                    <a href="~/Details/NewsDetails?id=@item.ID" style="color:#BA0C2F; font-size:11px">... read more</a>
+
+
+                                </div>
+                            </article>
+                        }
+
+                    }
+                    <br />
+                    <a href="~/Details/AllNews" style="color:#BA0C2F;font-size:12px">View all news  <i class="glyphicon glyphicon-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section: Impacts Section-->
+<section id="Impacts" class="bg-silver-deep" style="background-color:#f0f5f0">
+    <div class="container pb-40" style="padding-top:0px">
+        <div class="section-title">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <br />
+                    <h2 class="text-uppercase title">OUR <span class="text-theme-colored2">STORIES</span></h2>
+                    <div class="double-line-bottom-centered-theme-colored-2 mt-20"></div>
+                    @*<p class="text-uppercase">Choose Your Desired Course</p>*@
+                </div>
+            </div>
+        </div>
+        <div class="row mtli-row-clearfix">
+            <div class="owl-carousel-3col" data-nav="true">
+                @if (Model.lstImpacts != null)
+                {
+                    foreach (var item in Model.lstImpacts)
+                    {
+                        <div class="item">
+                            <div class="course-single-item bg-white border-1px clearfix mb-30">
+                                <div class="course-thumb">
+                                    <img class="img-fullwidth" alt="No Image choosen" src="@item.ImageUrl">
+                                </div>
+                                <div class="course-details clearfix p-20 pt-15 pb-0" style="min-height:250px; max-height:250px; overflow-y:hidden">
+                                    <div class="course-top-part pull-left mr-40">
+                                        <a href="~/Details/ImpactDetails?id=@item.ID"><h5 class="mt-0 mb-5 font-15" style="font-weight:bold">@item.Impact</h5></a>
+                                        <ul class="list-inline" style="margin-left:0px">
+                                            <div id="shareIcons_@item.ID" style="font-size:9px"></div>
+                                            <script>
+                                                $("#shareIcons_"+@item.ID).jsSocials({
+                                                    url: window.location.origin?window.location.origin+'/Details/ImpactDetails?id='+@item.ID:window.location.protocol+'/'+window.location.host+'/Details/ImpactDetails?id='+@item.ID,
+                                                    showLabel: false,
+                                                    showCount: false,
+                                                    shares: ["email", "twitter", "facebook", "googleplus", "linkedin", "pinterest"]
+                                                });
+                                            </script>
+
+                                    @*<li class="review-stars">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </li>
+                                        <li>25 <i class="fa fa-comments-o text-theme-colored2"></i></li>
+                                        <li>68 <i class="fa fa-thumbs-o-up text-theme-colored2"></i></li>*@
+                                    </ul>
+                                </div>
+                                <div class="clearfix"></div>
+                                <p class="course-description mt-10 font-12 font-weight-400" style="text-align:left">
+                                    @*@HttpUtility.HtmlDecode(item.Description.Length > 350 ? (item.Description.Substring(0, 350)).ToString() : item.Description.ToString())*@
+                                    @Html.Raw((System.Text.RegularExpressions.Regex.Replace(HttpUtility.HtmlDecode(item.Description.ToString()).Replace("&nbsp;", " ").Replace("<br />", ""), "<[^>]+>", string.Empty)).Replace("<br />", string.Empty))
+
+                                </p>
+                            </div>
+                            <a href="~/Details/ImpactDetails?id=@item.ID" style="color:#BA0C2F; font-size:11px; margin-left:20px;">... read more</a>
+                        </div>
+                    </div>
+                    }
+                }
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!--start Reach Section-->
+    <section class="parallax" data-bg-img="/Images/backgrounds/background_1.jpg" data-parallax-ratio="0.4">
+        <div class="container pt-90 pb-90">
+            <div class="section-title">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2 class="text-uppercase title" style="color:#fff"><span class="text-theme-colored2">OUR</span> REACH <span class="text-theme-colored2"></span></h2>
+                        <div class="double-line-bottom-centered-theme-colored-2 mt-20"></div>
+                        @*<p class="text-uppercase mb-0">We Have Highly Qualified Team MEMBER'S</p>*@
+                    </div>
+                </div>
+            </div>
+            <div class="section-content">
+                <div class="row">
+                    <div class="owl-carousel-3col" data-nav="false">
+                        @if (Model.lstReach != null)
+                        {
+                            foreach (var item in Model.lstReach)
+                            {
+                                <div class="item">
+                                    <div class="funfact text-center">
+                                        <div class="odometer-inside text-white font-weight-600 font-48 count" data-value="" data-theme="minimal">@item.ItemCount</div>
+                                        @*<h2 data-animation-duration="2000" data-value="@item.ItemCount" class="animate-number text-white font-38 font-weight-400 mt-0 mb-15 appeared">@item.ItemCount</h2>*@
+                                        <div class="double-line-bottom-centered-theme-colored-2 mt-0 mb-25"></div>
+                                        <h5 class="text-white mb-0">@item.ItemTitle</h5>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Team Section-->
+    <section id="team">
+        <div class="container pb-40">
+            <div class="section-title">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2 class="text-uppercase title">OUR <span class="text-theme-colored2">TEAM</span></h2>
+                        <div class="double-line-bottom-centered-theme-colored-2 mt-20"></div>
+                        @*<p class="text-uppercase mb-0">We Have Highly Qualified Team MEMBER'S</p>*@
+                    </div>
+                </div>
+            </div>
+            <div class="row mtli-row-clearfix">
+                <div class="team-members owl-carousel-4col" data-nav="true">
+                    @if (Model.lstTeamMembers != null)
+                    {
+                        foreach (var item in Model.lstTeamMembers)
+                        {
+                            <div class="col-md-12">
+                                <div class="team-members maxwidth400 mb-30">
+                                    <div class="team-thumb">
+                                        <img src="@item.ImageUrl" alt="" class="img-fullwidth">
+                                    </div>
+                                    <div class="team-bottom-part bg-silver-deep p-15 pb-0" style="min-height:185px; max-height:185px; overflow-y:hidden">
+                                        <h4 class="text-uppercase font-raleway text-theme-colored title-border font-weight-600 line-bottom-center m-0" style="font-size:15px">@item.MemberName <br /><span class="text-gray font-13 ml-5" style="text-transform:none; margin-left:0px !important"> @item.Designation</span></h4>
+
+                                        <p id="@item.ID+tmd" class="font-12 mt-10 mb-10 more" style="min-height:120px; font-weight: 400 !important; text-align:left">
+                                            @*@Html.Raw(HttpUtility.HtmlDecode(item.Description.Length > 200 ? (item.Description.Substring(0, 200)).ToString() : item.Description.ToString()))*@
+                                            @Html.Raw((System.Text.RegularExpressions.Regex.Replace(HttpUtility.HtmlDecode(item.Description.ToString()).Replace("&nbsp;", " ").Replace("<br />", ""), "<[^>]+>", string.Empty)).Replace("<br />", string.Empty))
+                                        </p>
+                                    </div>
+                                    <div class="bg-silver-deep">
+                                        <a href="~/Details/MemberDetails?id=@item.ID" target="_blank" style="color:#BA0C2F; font-size:11px; margin-left:15px;">... read more</a>
+                                        <ul class="styled-icons icon-theme-colored2">
+                                            <li><a href="@item.Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="@item.Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="@item.Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                            <li><a href="@item.Skype" target="_blank"><i class="fa fa-skype"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider: Testimonials Section-->
+    <section class="parallax Divider " @*data-bg-img="/Images/backgrounds/background_1.jpg"*@ data-parallax-ratio="0.4" data-bg-img="/Images/backgrounds/background_1.jpg">
+        <div class="container pt-70 pb-30 pr-10">
+            <div class="section-title">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2 class="text-uppercase text-white title">What <span class="text-theme-colored2">People </span>Say</h2>
+                        <div class="double-line-bottom-centered-theme-colored-2 mt-20"></div>
+                        @*<p class="text-uppercase mb-0">Student and Parents Opinion</p>*@
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mb-30">
+                    <div class="owl-carousel-2col boxed" data-dots="true">
+                        @if (Model.lstTestimonial != null)
+                        {
+                            foreach (var item in Model.lstTestimonial)
+                            {
+                                <div class="item">
+                                    <div class="testimonial pt-10 pr-30">
+                                        <div class="thumb pull-left mb-0 mr-0">
+                                            <img class="img-thumbnail img-circle" alt="" src="@item.ImageUrl" width="110">
+                                        </div>
+                                        <div class="testimonial-content">
+                                            <h6 class="text-white font-weight-300 mt-0" style="text-align:left">
+                                                @*@Html.Raw(HttpUtility.HtmlDecode(item.Comments))*@
+                                                @Html.Raw((System.Text.RegularExpressions.Regex.Replace(HttpUtility.HtmlDecode(item.Comments.ToString()).Replace("&nbsp;", " ").Replace("<br />", ""), "<[^>]+>", string.Empty)).Replace("<br />", string.Empty))
+                                            </h6>
+                                            <h5 class="text-theme-colored2 mt-10 font-16 mb-0" style="color:#fff !important; font-weight:400">@item.Name</h5>
+                                            <h6 class="text-gray-darkgray mt-5" style="margin-bottom: 5px !important">@item.Designation</h6>
+                                            <h6 class="text-gray-darkgray mt-0">@item.Org</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Gallery & Video Section-->
+    <section id="Gallery">
+        <div class="container pb-50">
+            <div class="section-content" style="overflow:hidden">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3 class="text-uppercase line-bottom-theme-colored-2 line-height-1 mt-0 mt-sm-30"><i class="fa fa-photo mr-10"></i>See Our <span class="text-theme-colored2">Videos</span></h3>
+                        <div class="gallery-isotope default-animation-effect grid-2 gutter clearfix" data-lightbox="gallery">
+                            <div id="youtube" class="spidochetube"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="text-uppercase line-bottom-theme-colored-2 line-height-1 mt-0 mt-sm-30"><i class="fa fa-photo mr-10"></i>See Our <span class="text-theme-colored2">Photos</span></h3>
+                        @*<div class="gallery-isotope default-animation-effect grid-4 gutter clearfix" data-lightbox="gallery">
+                                <div class="niceGallery" id="gallery">
+                                </div>
+                            </div>*@
+
+                        <div class="row mtli-row-clearfix">
+                            <div id="galleryPhotoslider" class="owl-carousel-1col" data-nav="false">
+                                <div class="row" style="height:390px">
+                                    <iframe style="position: relative; top: 0; left: 0; width: 100%; height: 100%;" src="https://flickrembed.com/cms_embed.php?source=flickr&layout=responsive&input=72157682035820912&sort=0&by=album&theme=default&scale=fill&limit=10&skin=default&autoplay=true" scrolling="no" frameborder="0" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"><p><a href="https://youtubevideoembed.com">Powered by Embed Youtube Code</a></p><small>Powered by <a href="https://flickrembed.com">flickr embed</a>.</small></iframe>
+                                    <script type="text/javascript">function showpics(){var a=$("#box").val();$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags="+a+"&tagmode=any&format=json&jsoncallback=?",function(a){$("#images").hide().html(a).fadeIn("fast"),$.each(a.items,function(a,e){$("<img/>").attr("src",e.media.m).appendTo("#images")})})}</script>
+                                </div>
+                                @*<div class="row" style="height:390px">
+                                    <iframe style="position: relative; top: 0; left: 0; width: 100%; height: 100%;" src="https://flickrembed.com/cms_embed.php?source=flickr&layout=responsive&input=72157682035820912&sort=0&by=album&theme=default&scale=fill&limit=10&skin=default&autoplay=true" scrolling="no" frameborder="0" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"><p><a href="https://youtubevideoembed.com">Powered by Embed Youtube Code</a></p><small>Powered by <a href="https://flickrembed.com">flickr embed</a>.</small></iframe>
+                                    <script type="text/javascript">function showpics(){var a=$("#box").val();$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags="+a+"&tagmode=any&format=json&jsoncallback=?",function(a){$("#images").hide().html(a).fadeIn("fast"),$.each(a.items,function(a,e){$("<img/>").attr("src",e.media.m).appendTo("#images")})})}</script>
+                                </div>
+                                <div class="row" style="height:390px">
+                                    <iframe style="position: relative; top: 0; left: 0; width: 100%; height: 100%;" src="https://flickrembed.com/cms_embed.php?source=flickr&layout=responsive&input=72157682035820912&sort=0&by=album&theme=default&scale=fill&limit=10&skin=default&autoplay=true" scrolling="no" frameborder="0" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"><p><a href="https://youtubevideoembed.com">Powered by Embed Youtube Code</a></p><small>Powered by <a href="https://flickrembed.com">flickr embed</a>.</small></iframe>
+                                    <script type="text/javascript">function showpics(){var a=$("#box").val();$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags="+a+"&tagmode=any&format=json&jsoncallback=?",function(a){$("#images").hide().html(a).fadeIn("fast"),$.each(a.items,function(a,e){$("<img/>").attr("src",e.media.m).appendTo("#images")})})}</script>
+                                </div>*@
+                                @*<div class="row" style="height:390px">
+                                    <iframe style="position: relative; top: 0; left: 0; width: 100%; height: 100%;" src="https://flickrembed.com/cms_embed.php?source=flickr&layout=responsive&input=72157682035820912&sort=0&by=album&theme=default&scale=fill&limit=10&skin=default&autoplay=true" scrolling="no" frameborder="0" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"><p><a href="https://youtubevideoembed.com">Powered by Embed Youtube Code</a></p><small>Powered by <a href="https://flickrembed.com">flickr embed</a>.</small></iframe>
+                                    <script type="text/javascript">function showpics(){var a=$("#box").val();$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags="+a+"&tagmode=any&format=json&jsoncallback=?",function(a){$("#images").hide().html(a).fadeIn("fast"),$.each(a.items,function(a,e){$("<img/>").attr("src",e.media.m).appendTo("#images")})})}</script>
+                                </div>
+                                <div class="row" style="height:390px">
+                                    <iframe style="position: relative; top: 0; left: 0; width: 100%; height: 100%;" src="https://flickrembed.com/cms_embed.php?source=flickr&layout=responsive&input=72157682035820912&sort=0&by=album&theme=default&scale=fill&limit=10&skin=default&autoplay=true" scrolling="no" frameborder="0" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"><p><a href="https://youtubevideoembed.com">Powered by Embed Youtube Code</a></p><small>Powered by <a href="https://flickrembed.com">flickr embed</a>.</small></iframe>
+                                    <script type="text/javascript">function showpics(){var a=$("#box").val();$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags="+a+"&tagmode=any&format=json&jsoncallback=?",function(a){$("#images").hide().html(a).fadeIn("fast"),$.each(a.items,function(a,e){$("<img/>").attr("src",e.media.m).appendTo("#images")})})}</script>
+                                </div>*@
+                            </div>
+                        </div>
+                        <div class="col-md-2 pull-right" style="margin-top: -33px;z-index: 999;">
+                            <a href="https://www.flickr.com/photos/145484453@N07/albums" target="_blank" class="pull-right" style="font-weight:bold;color:#BA0C2F;font-size:13px">... View all</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Events Section-->
+    <section id="Events" class="" style="background-color:#f0f5f0">
+        <div class="container pb-0">
+            <div class="section-title">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2 class="text-uppercase title">OUR <span class="text-theme-colored2">EVENTS </span></h2>
+                        <div class="double-line-bottom-centered-theme-colored-2 mt-20"></div>
+                        @*<p class="text-uppercase mb-0">See All Time Latest Events</p>*@
+                    </div>
+                </div>
+            </div>
+            <div class="section-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="owl-carousel-3col owl-nav-top" data-nav="true">
+                            @if (Model.lstEvent != null)
+                            {
+                                foreach (var item in Model.lstEvent)
+                                {
+                                    <div class="item">
+                                        <article class="post clearfix mb-30">
+                                            <div class="entry-header">
+                                                <div class="post-thumb thumb">
+                                                    @if (item.ImageUrl != null && item.ImageUrl != "")
+                                                    {
+                                                        <img src="@item.ImageUrl" alt="" width="370" style="width:370px !important;" height="244" class="">
+                                                    }
+                                                    else
+                                                    {
+                                                        <img src="~/Images/noimageevent.png" alt="" width="370" style="width:370px !important;" height="244" class="img-responsive">
+                                                    }
+
+                                                </div>
+                                                <div class="entry-date media-left text-center flip bg-theme-colored border-top-theme-colored2-3px pt-5 pr-15 pb-5 pl-15">
+                                                    <ul>
+                                                        <li class="font-16 text-white font-weight-600">@Convert.ToDateTime(item.EventDate).ToString("dd")</li>
+                                                        <li class="font-12 text-white text-uppercase">@Convert.ToDateTime(item.EventDate).ToString("MMM")</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="entry-content bg-white p-15" style="min-height:313px;">
+                                                <div class="entry-meta media no-bg no-border mt-0 mb-10">
+                                                    <div class="media-body pl-0">
+                                                        <div class="event-content pull-left flip">
+                                                            <h5 class="entry-title text-white font-weight-600 m-0 mt-5 font-15"><a href="#">@item.EventTitle</a></h5>
+                                                            <ul class="list-inline">
+                                                                @*<li><i class="fa fa-user-o mr-5 text-theme-colored2"></i>By Author</li>
+                                                                    <li><i class="fa fa-thumbs-o-up mr-5 text-theme-colored2"></i>Likes</li>*@
+                                                                @*<li><i class="fa fa-share-alt mr-5 text-theme-colored2"></i> 895 Likes</li>*@
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div style="min-height:180px; max-height:180px; overflow-y:hidden">
+                                                    <p class="mt-5 font-12 des" style="font-size: 13px!important">
+                                                        @if (item.Description != null)
+                                                        {
+                                                            @Html.Raw((System.Text.RegularExpressions.Regex.Replace(HttpUtility.HtmlDecode(item.Description.ToString()).Replace("&nbsp;", " ").Replace("<br />", ""), "<[^>]+>", string.Empty)).Replace("<br />", string.Empty))
+                                                        }
+                                                        @*@Html.Raw(HttpUtility.HtmlDecode(item.Description.ToString()))*@
+                                                        @*@Html.Raw((System.Text.RegularExpressions.Regex.Replace(HttpUtility.HtmlDecode(item.Description.ToString()).Replace("&nbsp;", " ").Replace("<br />", ""), "<[^>]+>", string.Empty)).Replace("<br />", string.Empty))*@
+                                                    </p>
+                                                </div>
+                                                <a href="~/Details/EventDetails?Id=@item.ID" class="" style="color:#BA0C2F; font-size:11px; margin-left:0px;">... read more</a>
+                                                @*<a class="btn btn-default btn-flat font-12 mt-10 ml-5" href="#"> View Details</a>*@
+                                            </div>
+                                        </article>
+                                    </div>
+                                }
+                            }
+
+                        </div>
+                    </div>
+                    @*<div class="col-md-4">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <h2 class="mt-0 line-height-1"><span class="text-theme-colored2">Contact us</span></h2>
+                                    <div class="double-line-bottom-theme-colored-2 mt-15 mb-10"></div>
+                                    <p class="mb-15">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio cum autem assumenda.</p>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="icon-box left media bg-white border-1px p-15 mb-15">
+                                        <a class="media-left pull-left" href="#"> <i class="pe-7s-map-2 text-theme-colored2"></i></a>
+                                        <div class="media-body">
+                                            <h5 class="mt-0">Our Office Location</h5>
+                                            <p>House No. CWN (A) 35, Road No. 43, Gulshan – 2, Dhaka -1212, Bangladesh.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-12">
+                                    <div class="icon-box left media bg-white border-1px p-15 mb-15">
+                                        <a class="media-left pull-left" href="#"> <i class="pe-7s-call text-theme-colored2"></i></a>
+                                        <div class="media-body">
+                                            <h5 class="mt-0">Contact Number</h5>
+                                            <p>: +88-09612555333</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-12">
+                                    <div class="icon-box left media bg-white border-1px p-15 mb-15">
+                                        <a class="media-left pull-left" href="#"> <i class="pe-7s-mail text-theme-colored2"></i></a>
+                                        <div class="media-body">
+                                            <h5 class="mt-0">Email Address</h5>
+                                            <p>info.bangladesh@savethechildren.org</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--start Partners Section-->
+    <section id="ourpartners" class="" @*data-bg-img="http://placehold.it/1920x820"*@ data-bg-img="/Images/backgrounds/background_1.jpg" data-parallax-ratio="0.4">
+        <div class="container pt-90 pb-90">
+            <div class="section-title">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2 class="text-uppercase title" style="color:#fff">OUR <span class="text-theme-colored2">Partners</span></h2>
+                        <div class="double-line-bottom-centered-theme-colored-2 mt-20"></div>
+                        @*<p class="text-uppercase mb-0">We Have Highly Qualified Team MEMBER'S</p>*@
+                    </div>
+                </div>
+            </div>
+            <div class="section-content">
+                <div class="row">
+                    <div id="partnerCarousel" class="owl-carousel-6col boxed" data-nav="false">
+                        @*owl-carousel-6col*@
+                        @if (Model.lstPartners != null)
+                        {
+                            foreach (var item in Model.lstPartners)
+                            {
+                                <div class="item">
+                                    <div class="item-inner slider-item-style vc_custom_1524672121474" style="max-width:182px; min-width:182px;max-height:170px;min-height:150px">
+                                        <a href="@item.PartnerSiteUrl" target="blank">
+                                            <img src="@item.PartnerLogoUrl" alt="@item.PartnerName" class="contain" style="max-width: 120px; height: 111px;  display:block;margin:auto;">
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Divider: Map -->
+    <section>
+        <!-- Google Map HTML Codes -->
+        @*<div id="map-canvas-multipointer">*@
+
+        @*</div>*@
+        <div id="map-canvas-multipointer" data-address="House CWN (A) 35, Road 43 1212, Dhaka 1212, Bangladesh"
+             data-popupstring-id="#popupstring1"
+             class="map-canvas autoload-map"
+             data-mapstyle="style"
+             data-height="500"
+             data-latlng="23.791516,90.411532"
+             data-title="Save the Children (Bangladesh)"
+             data-zoom="12"
+             data-marker="images/map-marker.png">
+        </div>
+        <div class="map-popupstring hidden" id="popupstring1">
+            <div class="text-center">
+                <h3>Save the Children (Bangladesh)</h3>
+                <p>House CWN (A) 35, Road 43 1212, Dhaka 1212,Bangladesh</p>
+            </div>
+        </div>
+        @*<div data-address="House CWN (A) 35, Road 43 1212, Dhaka 1212, Bangladesh 2"
+                 data-popupstring-id="#popupstring2"
+                 class="map-canvas autoload-map"
+                 data-mapstyle="style2"
+                 data-height="400"
+                 data-latlng="23.79335873,90.40379028"
+                 data-title="Save the Children (Bangladesh) 2"
+                 data-zoom="12"
+                 data-marker="images/map-marker.png">
+            </div>
+
+
+            <div class="map-popupstring hidden" id="popupstring2">
+                <div class="text-center">
+                    <h3>Save the Children (Bangladesh)</h3>
+                    <p>House CWN (A) 35, Road 43 1212, Dhaka 1212,Bangladesh</p>
+                </div>
+            </div>*@
+        <!-- Google Map Javascript Codes -->
+        @*<script src="http://maps.google.com/maps/api/js?sensor=false"></script>*@
+       
+        @*<script src="js/google-map-init.js"></script>*@
+        <script src="js/google-map-init-multilocation.js"></script>
+    </section>
+
+    <!-- Divider: Call To Action Subscribe Section -->
+    @*<section class="bg-theme-colored2">
+            <div class="container pt-0 pb-0">
+                <div class="row">
+                    <div class="call-to-action sm-text-center">
+                        <div class="col-md-7">
+                            <h4 class="text-white mb-0">Are you ready to get start?</h4>
+                            <h2 class="text-white mt-0">Subscribe Newsletter for Get in Touch!</h2>
+                        </div>
+                        <div class="col-md-5">
+                            <!-- Mailchimp Subscription Form Starts Here -->
+                            <form id="mailchimp-subscription-form-footer" class="newsletter-form mt-20 pt-5">
+                                <div class="input-group">
+                                    <input value="" name="EMAIL" placeholder="Your Email" class="form-control input-lg font-16" data-height="45px" id="mce-EMAIL-footer" style="height: 45px;" type="email">
+                                    <span class="input-group-btn">
+                                        <button data-height="45px" class="btn btn-theme-colored text-white btn-xs m-0 font-14" type="submit" style="height: 45px;">Subscribe</button>
+                                    </span>
+                                </div>
+                            </form>
+                            <!-- Mailchimp Subscription Form Validation-->
+                            <script type="text/javascript">
+                                $('#mailchimp-subscription-form-footer').ajaxChimp({
+                                    callback: mailChimpCallBack,
+                                    url: '//thememascot.us9.list-manage.com/subscribe/post?u=a01f440178e35febc8cf4e51f&amp;amp;amp;id=49d6d30e1e'
+                                });
+
+                                function mailChimpCallBack(resp) {
+                                    // Hide any previous response text
+                                    var $mailchimpform = $('#mailchimp-subscription-form-footer'),
+                                        $response = '';
+                                    $mailchimpform.children(".alert").remove();
+                                    if (resp.result === 'success') {
+                                        $response = '&amp;lt;div class="alert alert-success"&amp;gt;&amp;lt;button type="button" class="close" data-dismiss="alert" aria-label="Close"&amp;gt;&amp;lt;span aria-hidden="true"&amp;gt;&amp;amp;times;&amp;lt;/span&amp;gt;&amp;lt;/button&amp;gt;' + resp.msg + '&amp;lt;/div&amp;gt;';
+                                    } else if (resp.result === 'error') {
+                                        $response = '&amp;lt;div class="alert alert-danger"&amp;gt;&amp;lt;button type="button" class="close" data-dismiss="alert" aria-label="Close"&amp;gt;&amp;lt;span aria-hidden="true"&amp;gt;&amp;amp;times;&amp;lt;/span&amp;gt;&amp;lt;/button&amp;gt;' + resp.msg + '&amp;lt;/div&amp;gt;';
+                                    }
+                                    $mailchimpform.prepend($response);
+                                }
+                            </script>
+                            <!-- Mailchimp Subscription Form Ends Here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>*@
+    <!-- end main-content -->
+    <script src="~/youtube/jquery.nicescroll.min.js"></script>
+    <script src="~/youtube/jquery.spidochetube.js"></script>
+    <script>
+
+        //function isElementVisible($elementToBeChecked) {
+        //    var TopView = $(window).scrollTop();
+        //    var BotView = TopView + $(window).height();
+        //    var TopElement = $elementToBeChecked.offset().top;
+        //    var BotElement = TopElement + $elementToBeChecked.height();
+        //    return ((BotElement <= BotView) && (TopElement >= TopView));
+        //}
+
+        //$(window).scroll(function () {
+        //    $(".count").each(function () {
+        //        isOnView = isElementVisible($(this));
+        //        debugger;
+        //        if (isOnView) {
+        //            $(this).prop('Counter', 0).animate({
+        //                Counter: $(this).text()
+        //            }, {
+        //                duration: 4000,
+        //                easing: 'swing',
+        //                step: function (now) {
+        //                    $(this).text(Math.ceil(now));
+        //                    $this = $(this);
+        //                    var val = $this.text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+        //                    $this.text(val);
+        //                }
+        //            });
+        //        }
+        //    });
+        //});
+
+        $(document).ready(function () {
+            $('.count').each(function () {
+                $(this).prop('Counter', 0).animate({
+                    Counter: $(this).text()
+                }, {
+                    duration: 4000,
+                    easing: 'swing',
+                    step: function (now) {
+                        $(this).text(Math.ceil(now));
+                        $this = $(this);
+                        var val = $this.text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+                        $this.text(val);
+                    }
+                });
+
+            });
+
+            //$("#galleryPhoto").owlCarousel({
+            //    autoPlay : false,
+            //    items : 1,
+            //        dots:false,
+            //        loop:true,
+            //        autoplay:true,
+            //        autoplayTimeout:5000,
+            //        autoplayHoverPause:true
+            //});
+        });
+
+
+        jQuery(function($){
+            $('#youtube').spidochetube({
+                key         : 'AIzaSyDQN6-MmE0P8gCofynUICWC9hbChHdohKA', //'AIzaSyC1iCqmRtDe1s_yxjwM4lagX-1EaHsTukc'
+
+                id          : 'PLuGlmfP3tN50W0GecGv-QOzoWvkurobPg',//'PLuGlmfP3tN50W0GecGv-QOzoWvkurobPg'
+                max_results : 30,
+                complete    : function(){
+                    // Initialize the scroll plugin after the playlist is ready
+                    $('#spidochetube_list').niceScroll({
+                        cursorcolor  : '#666',
+                        cursorborder : '0px solid #fff',
+                        autohidemode : true
+                    });
+                }
+            });
+
+            $("#partnerCarousel").owlCarousel({
+                autoPlay : false,
+                items : 6,
+            });
+
+
+            $("#galleryPhotoslider").owlCarousel({
+                autoPlay : true,
+                items : 1,
+                autoplayTimeout:5000,
+            });
+
+            //var owl = $('#galleryPhoto');
+            //owl.owlCarousel({
+            //    items:1,
+            //    autoWidth:true,
+            //    dots:false,
+            //    loop:true,
+            //    autoplay:true,
+            //    autoplayTimeout:5000,
+            //    autoplayHoverPause:true
+            //});
+
+        });
+
+    </script>
+

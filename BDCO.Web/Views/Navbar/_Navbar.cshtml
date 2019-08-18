@@ -1,0 +1,99 @@
+﻿<style>
+    /*.activeMenu{
+            background: #de2f2f;
+
+            content: "";
+        position: absolute;
+        z-index: -1;
+        left: 50%;
+        right: 50%;
+        bottom: 0;
+        /* background: #2098d1;
+        background: #de2f2f;
+        height: 4px;
+        -webkit-transition-property: left, right;
+        transition-property: left, right;
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+        }
+        .navbar-collapse .navbar-nav > .active > a{
+        border-bottom: 2px solid black;
+        background-color: #FFF !important;
+        background: #de2f2f;
+    }*/
+    .activeMenu {
+        background: #de2f2f;
+        color: #fff !important;
+    }
+
+    .navbar-nav > li > a {
+        color: #777777;
+        font-family: georgia;
+    }
+
+    .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:hover {
+        color: #fff;
+        font-family: georgia;
+    }
+
+ .navbar-default .navbar-nav > .active > a:hover{
+        color: #fff;
+    }
+</style>
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav navbar-right">
+        <li><a class="hvr-shutter-out-horizontal" href="/Home/Index">HOME</a></li>
+        <li class="dropdown" id="aproval">
+            <a class="hvr-shutter-out-horizontal" href="/Home/PendingList">PENDING</a>
+        </li>
+        <li class="dropdown" id="aproval">
+            <a class="hvr-shutter-out-horizontal" href="/Home/ApprovedList">APPROVED</a>
+        </li>
+        <li class="dropdown" id="User">
+            <a class="hvr-shutter-out-horizontal dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false" style="text-transform:uppercase">@User.Identity.Name<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                @*<li>
+                    <a class="hvr-shutter-out-horizontal" href="/Account/ChangePassword"><i class="fa fa-key" aria-hidden="true"></i> Change Password</a>
+                </li>*@
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                {
+                    @*@Html.AntiForgeryToken()*@
+                    <li><a id="logoutlink" class="hvr-shutter-out-horizontal" href="javascript:document.getElementById('logoutForm').submit()" style="text-decoration:none;color:#777;font-family: 'Raleway';font-size:12px;padding: 3px 20px;width:100%"><i class="fa fa-power-off fa-fw"></i> Log Out</a></li>
+                }
+            </ul>
+        </li>
+    </ul>
+
+    <script>
+        $(document).ready(function () {
+            var pathname = window.location.pathname;
+            $('.nav > li > a[href="' + pathname + '"]').parent().addClass('active');
+            if (pathname.indexOf("Account") > 0) {
+                $("#User").addClass("active");
+            }
+            else if (pathname.indexOf("Report") > 0) {
+                $("#Reports").addClass("active");
+            }
+        });
+
+
+        function backupDB() {
+            appetizer.ajaxLoder.showPleaseWait();
+            var urlpath = '@Url.Action("BackupDatabase", "Account")';
+            appetizer.actionCall(urlpath, '', "GET", function (data, result) {
+                if (result) {
+                    appetizer.ajaxLoder.hidePleaseWait();
+                    appetizer.message.showInfo('#showMsg', data.Data, 10000);
+                }
+                else {
+                    appetizer.ajaxLoder.hidePleaseWait();
+                    appetizer.message.showError('#showErrorMsg', data.Data, 10000);
+                }
+            });
+        }
+
+
+    </script>
+</div>

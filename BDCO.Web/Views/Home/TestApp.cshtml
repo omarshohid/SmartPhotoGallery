@@ -1,0 +1,51 @@
+﻿@using Microsoft.AspNet.Identity
+@using AppetizerHtmlHelper
+@using Kendo.Mvc.UI
+@{
+    ViewBag.Title = "TestApp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>TestApp</h2>
+
+<div class="row">
+    @{
+        Html.RenderPartial("~/Views/Registration/BasicInfo.cshtml");
+    }
+    
+    <div class="col-md-4 col-sm-12">
+        <label for="beneficiaryForm">আইপি</label>
+        <input id="IpCode" value="1" style="width: 100%;" />
+        <span id="eIpCode" class="hideError"></span>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>
+                Tag
+            </label>
+            @Html.KendoTextBox("Tag", "", "150", "width: 100%;", "")
+            <span id="eTag" class="hideError"></span>
+        </div>
+        <input type="button" onclick="fnTest()" value="Save"/>
+    </div>
+</div>
+
+<script>
+    function fnTest() {
+        
+        appetizer.message.showInfo('#showMsg', "hgfdhfhdfgdhgf ", 10000);
+
+    }
+    var IpCodeData = [
+                           { text: "এফআইবিডিবি", value: "1" },
+                           { text: "আরডিআরএস", value: "2" },
+                           { text: "সিএনআরএস", value: "3" }
+    ];
+    $("#IpCode").kendoDropDownList({
+        dataTextField: "text",
+        dataValueField: "value",
+        dataSource: IpCodeData,
+        index: 0
+    });
+</script>
